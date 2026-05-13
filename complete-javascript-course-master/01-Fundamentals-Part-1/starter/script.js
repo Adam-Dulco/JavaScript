@@ -1,18 +1,51 @@
-const favourite = Number(prompt("What is your favourite number?"));
+/*===============*/
+/*    SWITCH     */
+/*===============*/
 
-console.log(`At the moment ${favourite} is a ${typeof favourite}`);
-console.log(favourite);
 
-if (favourite === 23) {
-  console.log("Cool, 23 is an amazing number");
-} else if (favourite === 7) {
-  console.log("7 is also an amazing number");
-} else if (favourite === 9) {
-  console.log("9 is also an amazing number");
-} else {
-  console.log("What you entered is either not a number or not 23 or 7 or 9");
+const day = "bluesday";
+
+switch (day) {
+  case "monday":
+    console.log("Plan course structure");
+    console.log("Go to coding meetup");
+    break;
+
+  case "tuesday":
+    console.log("Prepare theory videos");
+    break;
+  case "wednesday":
+  case "thursday":
+    console.log("Write code examples");
+    break;
+  case "friday":
+    console.log("Record videos");
+    break;
+  case "saturday":
+  case "sunday":
+    console.log("Enjoy the weekend 😎");
+    break;
+
+  default:
+    console.log("Not a valid day!");
 }
 
-if (favourite !== 23) {
-  console.log("Why not 23?");
-} else console.log("ahh ok it was 23");
+
+/*===============*/
+/*    IF/ELSE    */
+/*===============*/
+
+if (day === "monday") {
+  console.log("Plan course structure");
+  console.log("Go to coding meetup");
+} else if (day === "tuesday") {
+  console.log("Prepare theory videos");
+} else if (day === "wednesday" || day === "thursday") {
+  console.log("Write code examples");
+} else if (day === "friday") {
+  console.log("Record videos");
+} else if (day === "saturday" || day === "sunday") {
+  console.log("Enjoy the weekend 😎");
+} else {
+  console.log("Not a valid day!");
+}
