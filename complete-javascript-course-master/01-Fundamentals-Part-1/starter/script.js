@@ -1,26 +1,18 @@
-let js = "amazing";
-// if (js === "amazing") alert("hello world");
-console.log(40 + 8 + 23 - 10);
+const favourite = Number(prompt("What is your favourite number?"));
 
-let firstName = "Adam";
-console.log(firstName);
-console.log(firstName);
-console.log(firstName);
+console.log(`At the moment ${favourite} is a ${typeof favourite}`);
+console.log(favourite);
 
-const PI = 3.1415;
+if (favourite === 23) {
+  console.log("Cool, 23 is an amazing number");
+} else if (favourite === 7) {
+  console.log("7 is also an amazing number");
+} else if (favourite === 9) {
+  console.log("9 is also an amazing number");
+} else {
+  console.log("What you entered is either not a number or not 23 or 7 or 9");
+}
 
-let answer = PI * 5;
-console.log(answer);
-
-let myFirstJob = "Programmer";
-let myCurrentJob = "Junior Web Dev";
-
-console.log(`I used to be a ${myFirstJob}, but now I'm a ${myCurrentJob}`);
-
-let isIsland = true;
-let language;
-
-console.log(typeof isIsland);
-console.log(typeof population);
-console.log(typeof country);
-console.log(typeof language);
+if (favourite !== 23) {
+  console.log("Why not 23?");
+} else console.log("ahh ok it was 23");
