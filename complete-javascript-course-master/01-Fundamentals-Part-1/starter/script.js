@@ -1,51 +1,17 @@
-/*===============*/
-/*    SWITCH     */
-/*===============*/
+const age = 19;
+
+age >= 18
+  ? console.log(`I like to drink wine 🍷`)
+  : console.log(`I like to drink water 💧`);
 
 
-const day = "bluesday";
 
-switch (day) {
-  case "monday":
-    console.log("Plan course structure");
-    console.log("Go to coding meetup");
-    break;
+let population = 1600
 
-  case "tuesday":
-    console.log("Prepare theory videos");
-    break;
-  case "wednesday":
-  case "thursday":
-    console.log("Write code examples");
-    break;
-  case "friday":
-    console.log("Record videos");
-    break;
-  case "saturday":
-  case "sunday":
-    console.log("Enjoy the weekend 😎");
-    break;
-
-  default:
-    console.log("Not a valid day!");
-}
+population < 1800 ? console.log("It's below 1800") :
+population === 1800 ? console.log("It's equal to 1800") :
+console.log("It's above 1800");
 
 
-/*===============*/
-/*    IF/ELSE    */
-/*===============*/
 
-if (day === "monday") {
-  console.log("Plan course structure");
-  console.log("Go to coding meetup");
-} else if (day === "tuesday") {
-  console.log("Prepare theory videos");
-} else if (day === "wednesday" || day === "thursday") {
-  console.log("Write code examples");
-} else if (day === "friday") {
-  console.log("Record videos");
-} else if (day === "saturday" || day === "sunday") {
-  console.log("Enjoy the weekend 😎");
-} else {
-  console.log("Not a valid day!");
-}
+
