@@ -71,17 +71,10 @@
 // console.log(yearsUntilRetirement(1991, "Adam"));
 // console.log(yearsUntilRetirement(1950, "Mike"));
 
-
-
-
-
 // // Takes the scores and calculates the average
 // const calcAverage = (score1, score2, score3) => {
 //   return (score1 + score2 + score3) / 3;
 // };
-
-
-
 
 // // Assigns the scores to the variables
 // const scoreDolphins = calcAverage(44, 23, 71);
@@ -99,8 +92,6 @@
 // };
 
 // console.log(checkWinner(scoreDolphins, scoreKoalas));
-
-
 
 /*==================*/
 /*      ARRAYS      */
@@ -128,23 +119,106 @@
 
 //Exercise
 
-const calcAge = function (birthYear) {
-  return 2037 - birthYear;
+// const calcAge = function (birthYear) {
+//   return 2037 - birthYear;
+// };
+
+// const years = [1990, 1967, 2002, 2010, 2018];
+
+// console.log(years);
+
+// console.log(calcAge(years[0]));
+// console.log(calcAge(years[1]));
+// console.log(calcAge(years[2]));
+// console.log(calcAge(years[3]));
+// console.log(calcAge(years[4]));
+
+// const ages = [
+//   calcAge(years[0]),
+//   calcAge(years[1]),
+//   calcAge(years[years.length - 1]),
+// ];
+// console.log(ages);
+
+// Add Elements
+
+// const friends = ["Michael", "Steven", "Peter"];
+// const newLength = friends.push("Adam");
+// console.log(friends);
+// console.log(newLength);
+
+// friends.unshift("John");
+// console.log(friends);
+// console.log(newLength);
+
+// Remove Elements
+
+// friends.pop();
+// console.log(friends);
+
+// const popped = friends.pop();
+// console.log(popped);
+// console.log(friends);
+
+// const firstPopped = friends.shift();
+// console.log(firstPopped);
+// console.log(friends);
+// console.log(`Steven is in index position: ${friends.indexOf("Steven")}`);
+
+// console.log(friends.includes("Steven"));
+// console.log(friends.includes("Bob"));
+
+// const calcTip = bill => {
+//   return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+// };
+
+// const bills = [125, 555, 44];
+// const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+// const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+
+// console.log(bills, tips, totals);
+
+/*=================*/
+/*     OBJECTS     */
+/*=================*/
+
+const jonasArray = [
+  "Jonas",
+  "Schmedtmann",
+  2037 - 1991,
+  "teacher",
+  ["Michael", "Peter", "Steven"],
+];
+
+const jonas = {
+  firstName: "jonas",
+  lastName: "Schmedtmann",
+  age: 2037 - 1991,
+  job: "teacher",
+  friends: ["Michael", "Peter", "Steven"],
 };
 
-const years = [1990, 1967, 2002, 2010, 2018];
+console.log(jonas);
 
-console.log(years);
+console.log(jonas.firstName);
+console.log(jonas["firstName"]);
 
-console.log(calcAge(years[0]));
-console.log(calcAge(years[1]));
-console.log(calcAge(years[2]));
-console.log(calcAge(years[3]));
-console.log(calcAge(years[4]));
+const nameKey = "Name";
+console.log(jonas["first" + nameKey]);
+console.log(jonas["last" + nameKey]);
 
-const ages = [
-  calcAge(years[0]),
-  calcAge(years[1]),
-  calcAge(years[years.length - 1]),
-];
-console.log(ages);
+// const interestedIn = prompt(`What do you want to know about Jonas? Choose between in firstName, lastName, age, job, and friends`)
+
+// if(jonas[interestedIn]) {
+//   console.log(jonas[interestedIn])
+// } else {
+//   console.log('wrong request')
+// }
+
+jonas.location = "portugal";
+jonas["twitter"] = "@jonasschemt";
+console.log(jonas);
+
+console.log(
+  `${jonas.firstName} has ${jonas.friends.length} friends and his best friend is called ${jonas.friends[0]}`,
+);
