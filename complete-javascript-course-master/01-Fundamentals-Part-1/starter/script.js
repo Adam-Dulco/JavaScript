@@ -182,43 +182,113 @@
 /*     OBJECTS     */
 /*=================*/
 
-const jonasArray = [
-  "Jonas",
-  "Schmedtmann",
-  2037 - 1991,
-  "teacher",
-  ["Michael", "Peter", "Steven"],
-];
+// const jonasArray = [
+//   "Jonas",
+//   "Schmedtmann",
+//   2037 - 1991,
+//   "teacher",
+//   ["Michael", "Peter", "Steven"],
+// ];
+
+// const jonas = {
+//   firstName: "jonas",
+//   lastName: "Schmedtmann",
+//   age: 2037 - 1991,
+//   job: "teacher",
+//   friends: ["Michael", "Peter", "Steven"],
+// };
+
+// console.log(jonas);
+
+// console.log(jonas.firstName);
+// console.log(jonas["firstName"]);
+
+// const nameKey = "Name";
+// console.log(jonas["first" + nameKey]);
+// console.log(jonas["last" + nameKey]);
+
+// // const interestedIn = prompt(`What do you want to know about Jonas? Choose between in firstName, lastName, age, job, and friends`)
+
+// // if(jonas[interestedIn]) {
+// //   console.log(jonas[interestedIn])
+// // } else {
+// //   console.log('wrong request')
+// // }
+
+// jonas.location = "portugal";
+// jonas["twitter"] = "@jonasschemt";
+// console.log(jonas);
+
+// console.log(
+//   `${jonas.firstName} has ${jonas.friends.length} friends and his best friend is called ${jonas.friends[0]}`,
+// );
 
 const jonas = {
   firstName: "jonas",
   lastName: "Schmedtmann",
-  age: 2037 - 1991,
+  birthYear: 1991,
   job: "teacher",
   friends: ["Michael", "Peter", "Steven"],
-};
+  hasDriversLicense: true,
+  // calcAge: function (birthYear) {
+  //   return 2037 - birthYear;
+  // },
 
-console.log(jonas);
+  // calcAge: function () {
+  //   console.log(this);
+  //   return 2037 - this.birthYear;
+  // },
 
-console.log(jonas.firstName);
-console.log(jonas["firstName"]);
+//   calcAge: function () {
+//     this.age = 2037 - this.birthYear;
+//     return this.age;
+//   },
 
-const nameKey = "Name";
-console.log(jonas["first" + nameKey]);
-console.log(jonas["last" + nameKey]);
+//   getSummary: function () {
+//     return `${this.firstName} is a ${this.calcAge()} year old ${this.job}, and he has ${this.hasDriversLicense ? "a" : "no"} driver's license`;
+//   },
+// };
 
-// const interestedIn = prompt(`What do you want to know about Jonas? Choose between in firstName, lastName, age, job, and friends`)
+// console.log(jonas.calcAge());
+// console.log(jonas.age);
+// // console.log(jonas["calcAge"](1991));
 
-// if(jonas[interestedIn]) {
-//   console.log(jonas[interestedIn])
+// console.log(jonas.getSummary());
+
+// const mark = {
+//   fullName: "Mark Miller",
+//   mass: 78,
+//   height: 1.69,
+
+//   calcBMI: function () {
+//     this.bmi = this.mass / (this.height * this.height);
+//     return this.bmi;
+//   },
+// };
+
+// const john = {
+//   fullName: "John Smith",
+//   mass: 92,
+//   height: 1.95,
+//   calcBMI: function () {
+//     this.bmi = this.mass / (this.height * this.height);
+//     return this.bmi;
+//   },
+// };
+
+// mark.calcBMI(); // Creates new object properties of mark.bmi using 'this.bmi'
+// john.calcBMI(); // Creates new object properties of john.bmi using 'this.bmi'
+
+// if (mark.bmi > john.bmi) {
+//   console.log(
+//     `${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s BMI (${john.bmi})`,
+//   );
 // } else {
-//   console.log('wrong request')
+//   console.log(
+//     `${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s BMI (${mark.bmi})`,
+//   );
 // }
 
-jonas.location = "portugal";
-jonas["twitter"] = "@jonasschemt";
-console.log(jonas);
-
-console.log(
-  `${jonas.firstName} has ${jonas.friends.length} friends and his best friend is called ${jonas.friends[0]}`,
-);
+/*=================*/
+/*      LOOPS      */
+/*=================*/
