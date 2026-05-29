@@ -71,17 +71,10 @@ const yearsUntilRetirement = function (birthYear, firstName) {
 console.log(yearsUntilRetirement(1991, "Adam"));
 console.log(yearsUntilRetirement(1950, "Mike"));
 
-
-
-
-
 // Takes the scores and calculates the average
 const calcAverage = (score1, score2, score3) => {
   return (score1 + score2 + score3) / 3;
 };
-
-
-
 
 // Assigns the scores to the variables
 const scoreDolphins = calcAverage(44, 23, 71);
@@ -89,7 +82,7 @@ const scoreKoalas = calcAverage(23, 34, 27);
 
 // Calculates who is thw winner using the averages from calcAverage
 const checkWinner = (avgDolphins, avgKoalas) => {
-  if (avgDolphins >= avgKoalas * 2 ) {
+  if (avgDolphins >= avgKoalas * 2) {
     console.log(`Dolphins win (${scoreDolphins} vs. ${scoreKoalas})`);
   } else if (avgKoalas >= avgDolphins * 2) {
     console.log(`Koalas win (${scoreKoalas} vs. ${scoreDolphins})`);
