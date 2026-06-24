@@ -223,21 +223,21 @@
 //   `${jonas.firstName} has ${jonas.friends.length} friends and his best friend is called ${jonas.friends[0]}`,
 // );
 
-const jonas = {
-  firstName: "jonas",
-  lastName: "Schmedtmann",
-  birthYear: 1991,
-  job: "teacher",
-  friends: ["Michael", "Peter", "Steven"],
-  hasDriversLicense: true,
-  // calcAge: function (birthYear) {
-  //   return 2037 - birthYear;
-  // },
+// const jonas = {
+//   firstName: "jonas",
+//   lastName: "Schmedtmann",
+//   birthYear: 1991,
+//   job: "teacher",
+//   friends: ["Michael", "Peter", "Steven"],
+//   hasDriversLicense: true,
+// calcAge: function (birthYear) {
+//   return 2037 - birthYear;
+// },
 
-  // calcAge: function () {
-  //   console.log(this);
-  //   return 2037 - this.birthYear;
-  // },
+// calcAge: function () {
+//   console.log(this);
+//   return 2037 - this.birthYear;
+// },
 
 //   calcAge: function () {
 //     this.age = 2037 - this.birthYear;
@@ -292,3 +292,55 @@ const jonas = {
 /*=================*/
 /*      LOOPS      */
 /*=================*/
+
+// console.log('Lifting weights repetition 1 🏋️‍♂️')
+// console.log('Lifting weights repetition 2 🏋️‍♂️')
+// console.log('Lifting weights repetition 3 🏋️‍♂️')
+// console.log('Lifting weights repetition 4 🏋️‍♂️')
+// console.log('Lifting weights repetition 5 🏋️‍♂️')
+// console.log('Lifting weights repetition 6 🏋️‍♂️')
+// console.log('Lifting weights repetition 7 🏋️‍♂️')
+// console.log('Lifting weights repetition 8 🏋️‍♂️')
+// console.log('Lifting weights repetition 9 🏋️‍♂️')
+// console.log('Lifting weights repetition 10 🏋️‍♂️')
+
+// for loop keeps running while condition is TRUE
+// for (let rep = 1; rep <= 30; rep++) {
+//   console.log(`Lifting weights repetition ${rep} 🏋️‍♂️`);
+// }
+
+const jonasArray = [
+  "Jonas",
+  "Schemdtmann",
+  2031 - 1991,
+  "teacher",
+  ["Michael, Peter, Steven"],
+  true,
+];
+
+const types = [];
+
+// console.log(jonasArray[0]);
+// console.log(jonasArray[1]);
+// console.log(jonasArray[4]);
+
+for (let i = 0; i < jonasArray.length; i++) {
+  // Reading from jonasArray
+  console.log(jonasArray[i], typeof jonasArray[i]);
+
+  // Filling types array
+  // types[i] = typeof jonasArray[i]
+  types.push(typeof jonasArray[i]);
+}
+
+console.log(types);
+
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+  // ages[i] = 2037 - years[i];
+  ages.push(2037 - years[i]);
+}
+
+  console.log(ages);
