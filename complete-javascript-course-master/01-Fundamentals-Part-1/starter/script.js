@@ -345,20 +345,75 @@
 
 //   console.log(ages);
 
-const jonasArray = [
-  "Jonas",
-  "Schemdtmann",
-  2031 - 1991,
-  "teacher",
-  ["Michael, Peter, Steven"],
-  true,
-];
+// const jonasArray = [
+//   "Jonas",
+//   "Schemdtmann",
+//   2031 - 1991,
+//   "teacher",
+//   ["Michael, Peter, Steven"],
+//   true,
+// ];
 
-const newList = [];
+// const newList = [];
 
-for (let i = jonasArray.length - 1; i >= 0; i--) {
-  // let h = jonasArray[i];
-  // console.log(h, typeof h);
-  newList.push(jonasArray[i]);
-  console.log(newList);
+// for (let i = jonasArray.length - 1; i >= 0; i--) {
+//   console.log(i, jonasArray[i]);
+// }
+
+// for (let exercise = 1; exercise < 4; exercise++) {
+//   console.log(`---------- Starting exercise ${exercise}`)
+
+//   for (let rep = 1; rep < 6; rep++) {
+//     console.log(`Exercise ${exercise}: Lifting weight repetition ${rep} 🏋️`)
+//   }
+// }
+
+// for (let rep = 1; rep <=10; rep++) {
+//   console.log(`This is rep ${rep}`)
+// }
+
+// let rep = 1;
+
+// while (rep <= 10) {
+//   console.log(`Lifting weight repetition ${rep} 🏋️`);
+//   rep++;
+// }
+
+// let dice = Math.trunc(Math.random() * 6) + 1;
+// console.log(dice)
+
+// while (dice !== 6) {
+//   console.log(`You rolled a ${dice}`)
+//   dice = Math.trunc(Math.random() * 6) + 1;
+//   if (dice === 6) console.log(`${dice}, Loop is about to end...`)
+//   }
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+const calcTip = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+
+for (let i = 0; i < bills.length; i++) {
+  tips.push(calcTip(bills[i]));
+  totals.push(bills[i] + tips[i]);
 }
+console.log(bills);
+console.log(tips);
+console.log(totals);
+
+const calcAverage = function (arr) {
+  let sum = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    // sum = sum + arr[i];
+    sum += arr[i];
+  }
+
+  return sum / arr.length;
+};
+
+console.log(calcAverage([1, 5, 4]));
+console.log(calcAverage(totals));
