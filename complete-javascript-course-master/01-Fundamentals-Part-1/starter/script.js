@@ -309,6 +309,42 @@
 //   console.log(`Lifting weights repetition ${rep} 🏋️‍♂️`);
 // }
 
+// const jonasArray = [
+//   "Jonas",
+//   "Schemdtmann",
+//   2031 - 1991,
+//   "teacher",
+//   ["Michael, Peter, Steven"],
+//   true,
+// ];
+
+// const types = [];
+
+// // console.log(jonasArray[0]);
+// // console.log(jonasArray[1]);
+// // console.log(jonasArray[4]);
+
+// for (let i = 0; i < jonasArray.length; i++) {
+//   // Reading from jonasArray
+//   console.log(jonasArray[i], typeof jonasArray[i]);
+
+//   // Filling types array
+//   // types[i] = typeof jonasArray[i]
+//   types.push(typeof jonasArray[i]);
+// }
+
+// console.log(types);
+
+// const years = [1991, 2007, 1969, 2020];
+// const ages = [];
+
+// for (let i = 0; i < years.length; i++) {
+//   // ages[i] = 2037 - years[i];
+//   ages.push(2037 - years[i]);
+// }
+
+//   console.log(ages);
+
 const jonasArray = [
   "Jonas",
   "Schemdtmann",
@@ -318,29 +354,11 @@ const jonasArray = [
   true,
 ];
 
-const types = [];
+const newList = [];
 
-// console.log(jonasArray[0]);
-// console.log(jonasArray[1]);
-// console.log(jonasArray[4]);
-
-for (let i = 0; i < jonasArray.length; i++) {
-  // Reading from jonasArray
-  console.log(jonasArray[i], typeof jonasArray[i]);
-
-  // Filling types array
-  // types[i] = typeof jonasArray[i]
-  types.push(typeof jonasArray[i]);
+for (let i = jonasArray.length - 1; i >= 0; i--) {
+  // let h = jonasArray[i];
+  // console.log(h, typeof h);
+  newList.push(jonasArray[i]);
+  console.log(newList);
 }
-
-console.log(types);
-
-const years = [1991, 2007, 1969, 2020];
-const ages = [];
-
-for (let i = 0; i < years.length; i++) {
-  // ages[i] = 2037 - years[i];
-  ages.push(2037 - years[i]);
-}
-
-  console.log(ages);
