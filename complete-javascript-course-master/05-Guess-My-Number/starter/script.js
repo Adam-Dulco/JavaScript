@@ -14,7 +14,7 @@
 // console.log(document.querySelector('.guess').value);
 
 //Randomizes a number between 1 & 20
-const secretNumber = Math.trunc(Math.random() * 20) + 1; // Randomizes a number between 1 and 20
+let secretNumber = Math.trunc(Math.random() * 20) + 1; // Randomizes a number between 1 and 20
 
 // Adds the secret number to the middle 'number' box ~
 // document.querySelector('.number').textContent = secretNumber;
@@ -23,7 +23,6 @@ const secretNumber = Math.trunc(Math.random() * 20) + 1; // Randomizes a number 
 let score = Number(document.querySelector('.score').textContent);
 
 // --- USER INTERACTION FEATURES FOR CLICKING 'CHECK!' TO CHECK INPUT NUMBER ---
-
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
 
@@ -60,4 +59,22 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.score').textContent = 0;
     }
   }
+});
+
+// -----------   PLAY AGAIN   -------------
+document.querySelector('.again').addEventListener('click', function () {
+  // Reset Secret Number
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+  // Reset Score
+  document.querySelector('.score').textContent = '20';
+  // Resets Message
+  document.querySelector('.message').textContent = 'Start guessing...';
+  // Reset Background Color
+  document.querySelector('body').style.backgroundColor = '#222';
+  // Reset SecretNumber Styling
+  document.querySelector('.number').style.width = '15rem';
+  // Reset Secret Number to show '?' again.
+  document.querySelector('.number').textContent = '?';
+  // Reset guess box value
+  document.querySelector('.guess').value = '';
 });
