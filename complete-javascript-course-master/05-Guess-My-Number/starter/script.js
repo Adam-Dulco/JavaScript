@@ -20,7 +20,8 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1; // Randomizes a number be
 // document.querySelector('.number').textContent = secretNumber;
 
 // Creates a score variable which stores the user's score
-let score = Number(document.querySelector('.score').textContent);
+let score = 20;
+let highscore = 0;
 
 // --- USER INTERACTION FEATURES FOR CLICKING 'CHECK!' TO CHECK INPUT NUMBER ---
 document.querySelector('.check').addEventListener('click', function () {
@@ -36,6 +37,12 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('body').style.backgroundColor = '#60b347';
     document.querySelector('.number').style.width = '30rem';
     document.querySelector('.number').textContent = secretNumber;
+
+    // Stores the High Score
+    if (score > highscore) {
+      highscore = score;
+      document.querySelector('.highscore').textContent = highscore;
+    }
 
     // When guess is too high
   } else if (guess > secretNumber) {
@@ -66,7 +73,8 @@ document.querySelector('.again').addEventListener('click', function () {
   // Reset Secret Number
   secretNumber = Math.trunc(Math.random() * 20) + 1;
   // Reset Score
-  document.querySelector('.score').textContent = '20';
+  score = 20;
+  document.querySelector('.score').textContent = score;
   // Resets Message
   document.querySelector('.message').textContent = 'Start guessing...';
   // Reset Background Color
@@ -78,3 +86,7 @@ document.querySelector('.again').addEventListener('click', function () {
   // Reset guess box value
   document.querySelector('.guess').value = '';
 });
+
+// -----------   HIGH SCORE   -------------
+
+console.log((document.querySelector('.highscore').textContent = highscore));
