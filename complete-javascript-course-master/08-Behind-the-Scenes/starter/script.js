@@ -75,10 +75,55 @@
 //   console.log('All products deleted!');
 // }
 
-var x = 1;
-let y = 2;
-const z = 3;
+// var x = 1;
+// let y = 2;
+// const z = 3;
 
-console.log( x === window.x)
-console.log( x === window.y)
-console.log( x === window.x)
+// console.log( x === window.x)
+// console.log( x === window.y)
+// console.log( x === window.x)
+
+// console.log(myName)
+
+// let myName = 'Adam'
+
+// --------------- 'this' Keyword--------------
+
+// console.log(this);
+
+// const calcAge = function (birthYear) {
+//   console.log(2037 - birthYear);
+//   //   console.log(this);
+// };
+
+// calcAge(1991);
+
+// const calcAgeArrow = birthYear => {
+//   console.log(2037 - birthYear);
+//   //   console.log(this);
+// };
+
+// calcAgeArrow(1980);
+
+const jonas = {
+  name: 'Jonas',
+  year: 1991,
+  calcAge: function () {
+    console.log(this);
+    console.log(2037 - this.year);
+    console.log(this.name);
+  },
+};
+
+jonas.calcAge();
+
+const matilda = {
+  name: 'Matilda',
+  year: 2017,
+};
+
+matilda.calcAge = jonas.calcAge;
+matilda.calcAge();
+
+const f = jonas.calcAge;
+f();
