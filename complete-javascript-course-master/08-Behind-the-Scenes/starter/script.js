@@ -176,18 +176,66 @@
 
 // ARGUMENTS KEYWORD
 
-const addExpr = function (a, b) {
-  console.log(arguments);
-  return a + b;
+// const addExpr = function (a, b) {
+//   console.log(arguments);
+//   return a + b;
+// };
+
+// addExpr(2, 5);
+// addExpr(2, 5, 8, 12);
+
+// var addArrow = (a, b) => {
+//   a + b;
+//   console.log(addArrow);
+//   return a + b;
+// };
+
+// addArrow(2, 5, 8);
+
+// SHALLOW & DEEP OBJECT COPIES
+
+const jessica1 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
 };
 
-addExpr(2, 5);
-addExpr(2, 5, 8, 12);
+function marryPerson(originalPerson, newLastName) {
+  originalPerson.lastName = newLastName;
+  return originalPerson;
+}
 
-var addArrow = (a, b) => {
-  a + b;
-  console.log(addArrow);
-  return a + b;
+const marriedJessica = marryPerson(jessica1, 'Davis');
+
+// const marriedJessica = jessica1;
+// marriedJessica.lastName = 'Davis';
+
+console.log('Before', jessica1);
+console.log('After', marriedJessica);
+
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Alice', 'Bob'],
 };
 
-addArrow(2, 5, 8);
+// Shallow copy
+const jessicaCopy = { ...jessica };
+jessicaCopy.lastName = 'Davis';
+
+// jessicaCopy.family.push('Mary');
+// jessicaCopy.family.push('John');
+
+// console.log('Before', jessica);
+// console.log('After', jessicaCopy);
+
+// Deep copy/clone
+
+const jessicaClone = structuredClone(jessica);
+
+jessicaClone.family.push('Mary');
+jessicaClone.family.push('John');
+
+console.log('Original:', jessica);
+console.log('Clone:', jessicaClone);
