@@ -59,54 +59,127 @@ const restaurant = {
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`,
     );
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}`,
+    );
+  },
 };
 
-restaurant.orderDelivery({
-  time: '23:30',
-  address: 'Via del sole 21',
-  mainIndex: 2,
-  starterIndex: 2,
-});
+// SPREAD, because it is on the RIGHT side of the assignment operator, {the '=' symbol).
+const arr = [1, 2, ...[3, 4]];
 
-restaurant.orderDelivery({
-  address: 'Via del sole 21',
-  starterIndex: 1,
-});
+// REST, because it is on the left side of the assignment operator
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
 
-const { name, openingHours, categories } = restaurant;
-console.log(name, openingHours, categories);
+/////////////////////////////////////////////
+// The Spread Operator (...)
 
-console.log('DIVIDER');
+// const arr = [7, 8, 9];
+// const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badNewArr);
 
-const {
-  name: restaurantName,
-  openingHours: hours,
-  categories: tags,
-} = restaurant;
+// const newArr = [1, 2, ...arr];
+// console.log(newArr);
 
-console.log(restaurantName, hours, tags);
+// console.log(...newArr);
+// console.log(1, 2, 7, 8, 9);
 
-console.log('DIVIDER');
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// console.log(newMenu);
 
-// Default values
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
+// // Copy array
+// const mainMenuCopy = [...restaurant.mainMenu];
+// console.log(mainMenuCopy);
 
-console.log('DIVIDER');
+// // Join 2 arrays or more
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// console.log(menu);
 
-// Mutating variables
-let a = 111;
-let b = 999;
-const obj = { a: 23, b: 7, c: 14 };
-({ a, b } = obj);
+// // Iterables: arrays, strings, maps, sets but NOT objects
 
-console.log(a, b);
+// const str = 'Jonas';
+// const letters = [...str, ' ', 'S.'];
+// console.log(letters);
+// console.log(...str);
+// // console.log(`${...str}, e`)
 
-// Nested objects
-const {
-  fri: { open: o, close: c },
-} = openingHours;
-console.log(o, c);
+// // Objects
+// const newRestaurant = {
+//   foundedIn: 1998,
+//   ...restaurant,
+//   founder: 'Giuseppe',
+// };
+// console.log(newRestaurant);
+
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = 'Ristorante Roma';
+// console.log(restaurant.name);
+// console.log(restaurantCopy.name);
+
+// Real-world example
+// const ingredients = [
+//   prompt("Let's make pasta! Ingredient 1?"),
+//   prompt('Ingredient 2?'),
+//   prompt('Ingredient 3'),
+// ];
+
+// console.log(ingredients);
+
+// restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+
+// restaurant.orderPasta(...ingredients);
+
+//////////////////////////////////////////////////////
+// DESTRUCTURING OBJECTS
+// restaurant.orderDelivery({
+//   time: '23:30',
+//   address: 'Via del sole 21',
+//   mainIndex: 2,
+//   starterIndex: 2,
+// });
+
+// restaurant.orderDelivery({
+//   address: 'Via del sole 21',
+//   starterIndex: 1,
+// });
+
+// const { name, openingHours, categories } = restaurant;
+// console.log(name, openingHours, categories);
+
+// console.log('DIVIDER');
+
+// const {
+//   name: restaurantName,
+//   openingHours: hours,
+//   categories: tags,
+// } = restaurant;
+
+// console.log(restaurantName, hours, tags);
+
+// console.log('DIVIDER');
+
+// // Default values
+// const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(menu, starters);
+
+// console.log('DIVIDER');
+
+// // Mutating variables
+// let a = 111;
+// let b = 999;
+// const obj = { a: 23, b: 7, c: 14 };
+// ({ a, b } = obj);
+
+// console.log(a, b);
+
+// // Nested objects
+// const {
+//   fri: { open: o, close: c },
+// } = openingHours;
+// console.log(o, c);
 
 //////////////////////////////////////////////////////
 // DESTRUCTURING ARRAYS
