@@ -65,7 +65,14 @@ const restaurant = {
       `Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}`,
     );
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredient) {
+    console.log(mainIngredient);
+    console.log(otherIngredient);
+  },
 };
+
+// 1) DESTRUCTURING
 
 // SPREAD, because it is on the RIGHT side of the assignment operator, {the '=' symbol).
 const arr = [1, 2, ...[3, 4]];
@@ -73,6 +80,38 @@ const arr = [1, 2, ...[3, 4]];
 // REST, because it is on the left side of the assignment operator
 const [a, b, ...others] = [1, 2, 3, 4, 5];
 console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+
+console.log(pizza, risotto, otherFood);
+
+// Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(sat, weekdays);
+
+// 2) FUNCTIONS
+
+const add = function (...numbers) {
+  // console.log(numbers);
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant.orderPizza('Mushrooms', 'Onion', 'Olives', 'Spinach');
+restaurant.orderPizza('Mushrooms');
 
 /////////////////////////////////////////////
 // The Spread Operator (...)
