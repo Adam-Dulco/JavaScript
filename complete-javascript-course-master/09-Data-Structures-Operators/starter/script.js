@@ -82,29 +82,66 @@ const restaurant = {
   },
 };
 
-// property NAMES
-const properties = Object.keys(openingHours);
-console.log(properties);
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
 
-let openStr = `We are open on ${properties.length} days: `;
+console.log(ordersSet);
 
-for (const day of properties) {
-  openStr += `${day}, `;
+console.log(ordersSet.size);
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+ordersSet.delete('Risotto');
+// ordersSet.clear();
+console.log(ordersSet);
+
+for (const order of ordersSet) {
+  console.log(order);
 }
 
-console.log(openStr);
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
 
-// property VALUES
-const values = Object.values(openingHours);
-console.log(values);
+const staffUnique = new Set(staff);
+console.log(staffUnique);
 
-// Entire Object
-const entries = Object.entries(openingHours);
-console.log(entries);
+const staffUnique2 = [...new Set(staff)];
+console.log(staffUnique2);
 
-for (const [day, { open, close }] of entries) {
-  console.log(`On ${day}, we open at ${open}, and close at ${close}`);
-}
+console.log(
+  new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size,
+);
+
+console.log(new Set('Adam').size);
+// // property NAMES
+// const properties = Object.keys(openingHours);
+// console.log(properties);
+
+// let openStr = `We are open on ${properties.length} days: `;
+
+// for (const day of properties) {
+//   openStr += `${day}, `;
+// }
+
+// console.log(openStr);
+
+// // property VALUES
+// const values = Object.values(openingHours);
+// console.log(values);
+
+// // Entire Object
+// const entries = Object.entries(openingHours);
+// console.log(entries);
+
+// for (const [day, { open, close }] of entries) {
+//   console.log(`On ${day}, we open at ${open}, and close at ${close}`);
+// }
 
 // if (restaurant.openingHours && restaurant.openingHours.mon)
 // console.log(restaurant.openingHours.mon.open)
@@ -481,3 +518,140 @@ for (const [day, { open, close }] of entries) {
 // console.log('---- STEP 7 ----');
 // team1 < team2 && console.log('Team 1 is more likely to win');
 // team1 > team2 && console.log('Team 2 is more likely to win');
+
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
+
+// const info = game.scored.entries();
+// console.log(info);
+
+// 1.
+// console.log(Object.entries(game.scored));
+// console.log(game.scored.entries());
+
+// for (const [i, player] of game.scored.entries()) {
+//   console.log(`Goal ${i + 1}: ${player}`);
+// }
+
+// // 2.
+
+// const odds = Object.values(game.odds);
+// let average = 0;
+// for (const odd of odds) {
+//   average += odd;
+// }
+// average /= odds.length;
+// console.log(average);
+
+// // 3.
+// const info = Object.entries(game.odds);
+// console.log(info);
+
+// for (let [team, odd] of info) {
+//   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+//   console.log(`Odd of ${teamStr}: ${odd}`)
+// }
+
+// // 1.
+// let goals = 0;
+// for (const player of game.scored) {
+//   goals += 1;
+//   console.log(`Goal ${goals}: ${player}`);
+// }
+
+// // 2.
+// const oddz = Object.values(game.odds);
+// console.log(oddz);
+
+// let position = 0;
+
+// for (let odd of oddz) {
+//   // console.log(odd);
+//   position += odd;
+//   // console.log(position);
+// }
+
+// console.log(`The average of odds is: ` + position / oddz.length);
+
+// // 3.
+// const info = Object.entries(game);
+// console.log(info);
+
+// for (let [items, x] of info) {
+//   console.log(items);
+//   console.log(x);
+// }
+
+// // 4.
+// const goalScorers = Object.values(game.scored);
+// console.log(goalScorers);
+
+// const scorers = {
+//   Gnarby: 1,
+//   Hummels: 1,
+//   Lewandowski: 2,
+// };
+
+// console.log(scorers);
+
+///////////////////////////////////////
+// Coding Challenge #2
+
+/* 
+Let's continue with our football betting app!
+
+1. Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
+2. Use a loop to calculate the average odd and log it to the console (We already studied how to calculate averages, you can go check if you don't remember)
+3. Print the 3 odds to the console, but in a nice formatted way, exaclty like this:
+      Odd of victory Bayern Munich: 1.33
+      Odd of draw: 3.25
+      Odd of victory Borrussia Dortmund: 6.5
+Get the team names directly from the game object, don't hardcode them (except for "draw"). HINT: Note how the odds and the game objects have the same property names 😉
+
+BONUS: Create an object called 'scorers' which contains the names of the players who scored as properties, and the number of goals as the value. In this game, it will look like this:
+      {
+        Gnarby: 1,
+        Hummels: 1,
+        Lewandowski: 2
+      }
+
+GOOD LUCK 😀
+*/
