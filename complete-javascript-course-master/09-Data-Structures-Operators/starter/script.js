@@ -110,12 +110,27 @@ console.log(airline.slice(-2));
 console.log(airline.slice(1, -1));
 
 const checkMiddleSeat = function (seat) {
-  seat = seat.toUpperCase();
-  console.log(seat);
-  seat == 'B' || seat == 'E' ? console.log(true) : console.log(false);
+  let s = seat.slice(-1);
+  s = s.toUpperCase();
+  if (s === 'B' || s === 'E') {
+    console.log('You got the middle seat 😬');
+  } else {
+    console.log('You got lucky!');
+  }
 };
 
-checkMiddleSeat('E');
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+checkMiddleSeat('3e');
+checkMiddleSeat('3b');
+checkMiddleSeat('3b');
+checkMiddleSeat('3w');
+
+console.log(new String('Adam'));
+console.log(typeof new String('Adam'));
+
+console.log(typeof new String('Adam').slice(1));
 
 ///////////////////////////////////////
 // MAPS: Iteration
