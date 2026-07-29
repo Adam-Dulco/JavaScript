@@ -83,54 +83,98 @@ const restaurant = {
 };
 
 ///////////////////////////////////////
-// WORKING WITH STRINGS
+// Working With Strings - Part 2
 
-const airline = 'TAP Air Portugal';
-const plane = 'A320';
+// const airline = 'TAP Air Portugal';
+// console.log(airline.toLowerCase());
+// console.log(airline.toUpperCase());
 
-console.log(plane[0]);
-console.log(plane[1]);
-console.log(plane[2]);
-console.log('B737'[0]);
+// // Fix capitalisation in name
 
-console.log(airline.length);
-console.log('B737'.length);
+// const passenger = 'jOnAS'; //jonas
+// const passengerLower = passenger.toLowerCase();
+// const passengerCorrect =
+//   passengerLower[0].toUpperCase() + passengerLower.slice(1);
 
-console.log(airline.indexOf('r'));
-console.log(airline.lastIndexOf('r'));
-console.log(airline.indexOf('Portugal'));
+// console.log(passengerLower);
+// console.log(passengerCorrect);
 
-console.log(airline.slice(4));
-console.log(airline.slice(4, 7));
+// const surnameFixer = function (surname) {
+//   surname = surname.toLowerCase();
+//   surname = surname[0].toUpperCase() + surname.slice(1);
+//   console.log(surname)
+// };
 
-console.log(airline.slice(0, airline.indexOf(' ')));
-console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+// surnameFixer('wIlSoN')
+// surnameFixer('montgomery')
+// surnameFixer('nAgAsAkI')
 
-console.log(airline.slice(-2));
-console.log(airline.slice(1, -1));
+// Comparing emails
+// const email = 'hello@yahoo.io'
+// const loginEmail = '  Hello@yahoo.Io \n'
 
-const checkMiddleSeat = function (seat) {
-  let s = seat.slice(-1);
-  s = s.toUpperCase();
-  if (s === 'B' || s === 'E') {
-    console.log('You got the middle seat 😬');
-  } else {
-    console.log('You got lucky!');
-  }
-};
+// const lowerEmail = loginEmail.toLowerCase();
+// console.log(lowerEmail);
+// const trimmedEmail = lowerEmail.trim()
+// console.log(trimmedEmail);
 
-checkMiddleSeat('11B');
-checkMiddleSeat('23C');
-checkMiddleSeat('3E');
-checkMiddleSeat('3e');
-checkMiddleSeat('3b');
-checkMiddleSeat('3b');
-checkMiddleSeat('3w');
+const email = '   hello@yahoo.io   ';
+console.log(email);
+const trimmedEmail = email.trim();
+console.log(trimmedEmail);
 
-console.log(new String('Adam'));
-console.log(typeof new String('Adam'));
+// const airlineModifiedText = airline.toLowerCase()
+// console.log(airlineModifiedText);
 
-console.log(typeof new String('Adam').slice(1));
+///////////////////////////////////////
+// Working With Strings - Part 1
+
+// const airline = 'TAP Air Portugal';
+// const plane = 'A320';
+
+// console.log(plane[0]);
+// console.log(plane[1]);
+// console.log(plane[2]);
+// console.log('B737'[0]);
+
+// console.log(airline.length);
+// console.log('B737'.length);
+
+// console.log(airline.indexOf('r'));
+// console.log(airline.lastIndexOf('r'));
+// console.log(airline.indexOf('Portugal'));
+
+// console.log(airline.slice(4));
+// console.log(airline.slice(4, 7));
+
+// console.log(airline.slice(0, airline.indexOf(' ')));
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+// console.log(airline.slice(-2));
+// console.log(airline.slice(1, -1));
+
+// const checkMiddleSeat = function (seat) {
+//   let s = seat.slice(-1);
+//   s = s.toUpperCase();
+//   if (s === 'B' || s === 'E') {
+//     console.log('You got the middle seat 😬');
+//   } else {
+//     console.log('You got lucky!');
+//   }
+// };
+
+// checkMiddleSeat('11B');
+// checkMiddleSeat('23C');
+// checkMiddleSeat('3E');
+// checkMiddleSeat('3e');
+// checkMiddleSeat('3b');
+// checkMiddleSeat('3b');
+// checkMiddleSeat('3w');
+
+// console.log(new String('Adam'));
+// console.log(typeof new String('Adam'));
+
+// console.log(typeof new String('Adam').slice(1));
 
 ///////////////////////////////////////
 // MAPS: Iteration
