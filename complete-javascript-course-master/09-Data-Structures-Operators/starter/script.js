@@ -118,10 +118,63 @@ const restaurant = {
 // const trimmedEmail = lowerEmail.trim()
 // console.log(trimmedEmail);
 
-const email = '   hello@yahoo.io   ';
+const email = 'hello@yahoo.io';
 console.log(email);
-const trimmedEmail = email.trim();
-console.log(trimmedEmail);
+const loginEmail = '   Hello@yahoo.Io \n';
+console.log(loginEmail);
+
+// const lowerEmail = loginEmail.toLowerCase();
+// console.log(lowerEmail)
+
+// const trimmedEmail = lowerEmail.trim();
+// console.log(trimmedEmail);
+
+const normalisedEmail = loginEmail.toLowerCase().trim();
+console.log(normalisedEmail);
+console.log(email === normalisedEmail);
+
+// replacing
+
+const priceGB = '288,97£';
+console.log(priceGB);
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcement =
+  'All passengers come to boarding door 23. Boarding door 23!';
+
+console.log(announcement.replace('door', 'gate'));
+// console.log(announcement.replaceAll('door', 'gate'))
+
+// Regular Expression version
+console.log(announcement.replace(/door/g, 'gate'));
+
+//  Booleans
+
+const plane = 'Airbus A320neo';
+console.log(plane.includes('A320'));
+console.log(plane.includes('Boeing'));
+console.log(plane.startsWith('Airb'));
+
+if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+  console.log('Part of the NEW Airbus family');
+}
+
+// Practice Exercise
+
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  console.log(baggage);
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are NOT allowed on board');
+  } else {
+    console.log('Welcome aboard!');
+  }
+};
+
+checkBaggage('I have a laptop, some Food, and a pocket Knife');
+checkBaggage('Socks, and camera');
+checkBaggage('Got some snacks and a gun for protection');
 
 // const airlineModifiedText = airline.toLowerCase()
 // console.log(airlineModifiedText);
