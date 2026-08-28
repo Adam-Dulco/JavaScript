@@ -132,15 +132,35 @@ const restaurant = {
 // planesInLine(3);
 // planesInLine(12);
 
-const challenge4 = function (varNames) {
-  console.log(varNames);
+const challenge4 = function (varName) {
+  // console.log(varName);
+  varName = varName.toLowerCase().trim();
+  const splitStr = varName.split('_');
+  // console.log(splitStr);
 
-  const splitStr = varNames.split('_')
-  console.log(splitStr);
+  for (let i = 1; i < splitStr.length; i++) {
+    const word = splitStr[i];
+    // console.log(word);
+    const capitalizedWord = word.charAt(0).toUpperCase() + word.slice(1);
+    // console.log(capitalizedWord);
+    splitStr[i] = capitalizedWord;
+  }
 
+  const fixedWord = splitStr.join('');
+
+  console.log(fixedWord);
 };
 
 challenge4('underscore_case');
+challenge4('Some_Variable ');
+challenge4('   calculate_AGE');
+challenge4(' delayed_departure   ');
+challenge4('a_b');
+
+//  first_name
+// Some_Variable
+//   calculate_AGE
+// delayed_departure
 
 ///////////////////////////////////////
 // Coding Challenge #4
