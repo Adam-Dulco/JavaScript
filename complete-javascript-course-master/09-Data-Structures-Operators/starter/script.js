@@ -4,6 +4,17 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
+const getCode = str => str.slice(0, 3).toUpperCase();
+
+for (const flight of flights.split('+')) {
+  const [type, from, to, time] = flight.split(';');
+  const output =
+    `${type.startsWith('_Delayed') ? '🔴' : ''}${type.replaceAll('_', ' ')} from ${getCode(from)} to ${getCode(to)} (${time.replace(':', 'h')})`.padStart(
+      45,
+    );
+  console.log(output);
+}
+
 const italianFoods = new Set([
   'pasta',
   'gnocchi',
@@ -132,30 +143,55 @@ const restaurant = {
 // planesInLine(3);
 // planesInLine(12);
 
-const challenge4 = function (varName) {
-  // console.log(varName);
-  varName = varName.toLowerCase().trim();
-  const splitStr = varName.split('_');
-  // console.log(splitStr);
+// const challenge4 = function (varName) {
+//   // console.log(varName);
+//   varName = varName.toLowerCase().trim();
+//   const splitStr = varName.split('_');
+//   // console.log(splitStr);
 
-  for (let i = 1; i < splitStr.length; i++) {
-    const word = splitStr[i];
-    // console.log(word);
-    const capitalizedWord = word.charAt(0).toUpperCase() + word.slice(1);
-    // console.log(capitalizedWord);
-    splitStr[i] = capitalizedWord;
-  }
+//   for (let i = 1; i < splitStr.length; i++) {
+//     const word = splitStr[i];
+//     // console.log(word);
+//     const capitalizedWord = word.charAt(0).toUpperCase() + word.slice(1);
+//     // console.log(capitalizedWord);
+//     splitStr[i] = capitalizedWord;
+//   }
 
-  const fixedWord = splitStr.join('');
+//   const fixedWord = splitStr.join('');
 
-  console.log(fixedWord);
-};
+//   console.log(fixedWord);
+// };
 
-challenge4('underscore_case');
-challenge4('Some_Variable ');
-challenge4('   calculate_AGE');
-challenge4(' delayed_departure   ');
-challenge4('a_b');
+// challenge4('underscore_case');
+// challenge4('Some_Variable ');
+// challenge4('   calculate_AGE');
+// challenge4(' delayed_departure   ');
+// challenge4('a_b');
+
+// const challenge4 = function (varName) {
+//   // console.log(varName);
+//   varName = varName.toLowerCase().trim();
+//   const splitStr = varName.split('_');
+//   // console.log(splitStr);
+
+//   for (let i = 1; i < splitStr.length; i++) {
+//     const word = splitStr[i];
+//     // console.log(word);
+//     const capitalizedWord = word.charAt(0).toUpperCase() + word.slice(1);
+//     // console.log(capitalizedWord);
+//     splitStr[i] = capitalizedWord;
+//   }
+
+//   const fixedWord = splitStr.join('');
+
+//   console.log(fixedWord);
+// };
+
+// challenge4('underscore_case');
+// challenge4('Some_Variable ');
+// challenge4('   calculate_AGE');
+// challenge4(' delayed_departure   ');
+// challenge4('a_b');
 
 //  first_name
 // Some_Variable
