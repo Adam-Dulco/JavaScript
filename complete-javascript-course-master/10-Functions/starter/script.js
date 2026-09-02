@@ -63,43 +63,62 @@
 // newPassport(adam);
 // checkIn(flight, adam);
 
-const oneWord = function (str) {
-  return str.replace(/ /g, ''.toLowerCase());
+// const oneWord = function (str) {
+//   return str.replace(/ /g, ''.toLowerCase());
+// };
+
+// const upperFirstWord = function (str) {
+//   const [first, ...others] = str.split(' ');
+//   return [first.toUpperCase(), ...others].join(' ');
+// };
+
+// // Higher-order function
+// const transformer = function (str, fn) {
+//   console.log(`Original string: ${str}`);
+//   console.log(`Transformed string: ${fn(str)}`);
+
+//   console.log(`Transformed by: ${fn.name}`);
+// };
+
+// transformer('JavaScript is the best!', upperFirstWord);
+// transformer('JavaScript is the best!', oneWord);
+
+// // JS uses callbacks all the time
+// const high5 = function () {
+//   console.log('👋');
+// };
+// document.body.addEventListener('click', high5);
+
+// ['Jonas', 'Martha', 'Adam'].forEach(high5);
+
+// const divideNum = function (num) {
+//   return num / 2;
+// };
+
+// divideNum(7);
+
+// const transformer2 = function (num, fn) {
+//   console.log(`Original String: ${num}`);
+//   console.log(`With Num: ${fn(num)}`);
+// };
+
+// transformer2(9, divideNum);
+
+// Functions returning new functions
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
 };
 
-const upperFirstWord = function (str) {
-  const [first, ...others] = str.split(' ');
-  return [first.toUpperCase(), ...others].join(' ');
-};
+const greeterHey = greet('Hey');
+greeterHey('Adam');
+greeterHey('Steven');
 
-// Higher-order function
-const transformer = function (str, fn) {
-  console.log(`Original string: ${str}`);
-  console.log(`Transformed string: ${fn(str)}`);
+greet('Hello')('Jonas');
 
-  console.log(`Transformed by: ${fn.name}`);
-};
+// Arrow function transformation challenge
+const greetArr = greeting => name => console.log(`${greeting} ${name}`);
 
-transformer('JavaScript is the best!', upperFirstWord);
-transformer('JavaScript is the best!', oneWord);
-
-// JS uses callbacks all the time
-const high5 = function () {
-  console.log('👋');
-};
-document.body.addEventListener('click', high5);
-
-['Jonas', 'Martha', 'Adam'].forEach(high5);
-
-const divideNum = function (num) {
-  return num / 2;
-};
-
-divideNum(7);
-
-const transformer2 = function (num, fn) {
-  console.log(`Original String: ${num}`);
-  console.log(`With Num: ${fn(num)}`);
-};
-
-transformer2(9, divideNum);
+greetArr('Hi')('Adam');
