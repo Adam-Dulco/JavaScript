@@ -123,110 +123,168 @@
 
 // greetArr('Hi')('Adam');
 
-const lufthansa = {
-  airline: 'Lufthansa',
-  iataCode: 'LH',
-  bookings: [],
-  // book: function(flightNum) {}
-  book(flightNum, name) {
-    console.log(
-      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`,
+// const lufthansa = {
+//   airline: 'Lufthansa',
+//   iataCode: 'LH',
+//   bookings: [],
+//   // book: function(flightNum) {}
+//   book(flightNum, name) {
+//     console.log(
+//       `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`,
+//     );
+//     this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+//     console.log(this);
+//   },
+// };
+
+// lufthansa.book(123, 'Adam');
+// lufthansa.book(635, 'John Smith');
+// console.log(lufthansa);
+
+// const eurowings = {
+//   airline: 'Eurowings',
+//   iataCode: 'EW',
+//   bookings: [],
+// };
+
+// const book = lufthansa.book;
+
+// // Does NOT work
+// // book(23, 'Sarah Williams');
+
+// // Call method
+// book.call(eurowings, 23, 'Sarah Williams');
+// console.log(eurowings);
+
+// book.call(lufthansa, 321, 'Graham Simon');
+// console.log(lufthansa);
+
+// const swiss = {
+//   airline: 'Swiss Air Lines',
+//   iataCode: 'LX',
+//   bookings: [],
+// };
+
+// book.call(swiss, 583, 'Henry Cooper');
+// console.log(swiss);
+
+// // Apply method
+// const flightData = [583, 'George Cooper'];
+// book.apply(swiss, flightData);
+// console.log(swiss);
+
+// book.call(swiss, ...flightData);
+
+// // Bind Method
+// // book.call(eurowings, 23, 'Sarah Williams');
+
+// const bookEW = book.bind(eurowings);
+// const bookLH = book.bind(lufthansa);
+// const bookLX = book.bind(swiss);
+
+// bookEW(23, 'Steven Williams');
+
+// const bookEW23 = book.bind(eurowings, 23);
+// bookEW23('Adam');
+// bookEW23('Martha Cooper');
+
+// // With event listeners
+// lufthansa.planes = 300;
+// lufthansa.buyPlane = function () {
+//   console.log(this);
+
+//   this.planes++;
+//   console.log(this.planes);
+// };
+
+// // lufthansa.buyPlane()
+
+// document
+//   .querySelector('.buy')
+//   .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+// // Partial Application
+
+// const addTax = (rate, value) => value + value * rate;
+// console.log(addTax(0.1, 200));
+
+// const addVAT = addTax.bind(null, 0.23);
+
+// // addVAT = value => value + value * 0.23;
+
+// console.log(addVAT(100));
+// console.log(addVAT(23));
+
+// const returnVAT = function (rate) {
+//   return function (value) {
+//     console.log(`${value}` + `${value}` * `${rate}`);
+//   };
+// };
+
+// const addTaxRate = function (rate) {
+//   return function (value) {
+//     return value + value * rate;
+//   };
+// };
+
+// const addVAT2 = addTaxRate(0.23);
+// console.log(addVAT2(100));
+// console.log(addVAT2(23));
+
+const poll = {
+  question: 'What is your favourite programming language?',
+  options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+  // This generates [0, 0, 0, 0]. More in the next section 😃
+  answers: new Array(4).fill(0),
+
+  registerNewAnswer: function () {
+    const answer = Number(
+      prompt(
+        `What is your favourite programming language?
+        \n0: JavaScript
+        \n1: Python
+        \n2: Rust
+        \n3: C++
+        \n(Write option number)`,
+      ),
     );
-    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
-    console.log(this);
+    if (Number.isInteger(answer) && answer >= 0 && answer <= 3) {
+      // poll.answers[answer] = poll.answers[answer] + 1;
+      this.answers[answer]++;
+      // console.log(poll.answers);
+    } else {
+      alert(
+        `${answer} is an invalid number. Please select an integer number between 0 and 3, corresponding to your favourite programming language.`,
+      );
+    }
+    this.displayResults();
+  },
+  displayResults: function (type = 'array') {
+    if (type === 'array') {
+      console.log(this.answers);
+    } else if (type === 'string') {
+      console.log(`Poll results are ${this.answers}`);
+    }
   },
 };
 
-lufthansa.book(123, 'Adam');
-lufthansa.book(635, 'John Smith');
-console.log(lufthansa);
-
-const eurowings = {
-  airline: 'Eurowings',
-  iataCode: 'EW',
-  bookings: [],
-};
-
-const book = lufthansa.book;
-
-// Does NOT work
-// book(23, 'Sarah Williams');
-
-// Call method
-book.call(eurowings, 23, 'Sarah Williams');
-console.log(eurowings);
-
-book.call(lufthansa, 321, 'Graham Simon');
-console.log(lufthansa);
-
-const swiss = {
-  airline: 'Swiss Air Lines',
-  iataCode: 'LX',
-  bookings: [],
-};
-
-book.call(swiss, 583, 'Henry Cooper');
-console.log(swiss);
-
-// Apply method
-const flightData = [583, 'George Cooper'];
-book.apply(swiss, flightData);
-console.log(swiss);
-
-book.call(swiss, ...flightData);
-
-// Bind Method
-// book.call(eurowings, 23, 'Sarah Williams');
-
-const bookEW = book.bind(eurowings);
-const bookLH = book.bind(lufthansa);
-const bookLX = book.bind(swiss);
-
-bookEW(23, 'Steven Williams');
-
-const bookEW23 = book.bind(eurowings, 23);
-bookEW23('Adam');
-bookEW23('Martha Cooper');
-
-// With event listeners
-lufthansa.planes = 300;
-lufthansa.buyPlane = function () {
-  console.log(this);
-
-  this.planes++;
-  console.log(this.planes);
-};
-
-// lufthansa.buyPlane()
-
 document
-  .querySelector('.buy')
-  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+  .querySelector('.poll')
+  .addEventListener('click', poll.registerNewAnswer.bind(poll));
 
-// Partial Application
+/* 
 
-const addTax = (rate, value) => value + value * rate;
-console.log(addTax(0.1, 200));
 
-const addVAT = addTax.bind(null, 0.23);
 
-// addVAT = value => value + value * 0.23;
+3. Create a method 'displayResults' which displays the poll results. The method takes a string as an input (called 'type'), which can be either 'string' or 'array'. If type is 'array', simply display the results array as it is, using console.log(). This should be the default option. If type is 'string', display a string like "Poll results are 13, 2, 4, 1". 
+4. Run the 'displayResults' method at the end of each 'registerNewAnswer' method call.
 
-console.log(addVAT(100));
-console.log(addVAT(23));
+HINT: Use many of the tools you learned about in this and the last section 😉
 
-const returnVAT = function (rate) {
-  return function (value) {
-    console.log(`${value}` + `${value}` * `${rate}`);
-  };
-};
+BONUS: Use the 'displayResults' method to display the 2 arrays in the test data. Use both the 'array' and the 'string' option. Do NOT put the arrays in the poll object! So what should the this keyword look like in this situation?
 
-const addTaxRate = function (rate) {
-  return function (value) {
-    return value + value * rate;
-  };
-};
+BONUS TEST DATA 1: [5, 2, 3]
+BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
 
-const addVAT2 = addTaxRate(0.23);
-console.log(addVAT2(100));
-console.log(addVAT2(23));
+GOOD LUCK 😀
+*/
