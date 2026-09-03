@@ -231,6 +231,49 @@
 // console.log(addVAT2(100));
 // console.log(addVAT2(23));
 
+// CHALLENGE 1 - My attempt -------------------
+// const poll = {
+//   question: 'What is your favourite programming language?',
+//   options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+//   // This generates [0, 0, 0, 0]. More in the next section 😃
+//   answers: new Array(4).fill(0),
+
+//   registerNewAnswer: function () {
+//     const answer = Number(
+//       prompt(
+//         `What is your favourite programming language?
+//         \n0: JavaScript
+//         \n1: Python
+//         \n2: Rust
+//         \n3: C++
+//         \n(Write option number)`,
+//       ),
+//     );
+//     if (Number.isInteger(answer) && answer >= 0 && answer <= 3) {
+//       // poll.answers[answer] = poll.answers[answer] + 1;
+//       this.answers[answer]++;
+//       // console.log(poll.answers);
+//     } else {
+//       alert(
+//         `${answer} is an invalid number. Please select an integer number between 0 and 3, corresponding to your favourite programming language.`,
+//       );
+//     }
+//     this.displayResults();
+//   },
+//   displayResults: function (type = 'array') {
+//     if (type === 'array') {
+//       console.log(this.answers);
+//     } else if (type === 'string') {
+//       console.log(`Poll results are ${this.answers}`);
+//     }
+//   },
+// };
+
+// document
+//   .querySelector('.poll')
+//   .addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+// CHALLENGE 1 - Jonas -------------------
 const poll = {
   question: 'What is your favourite programming language?',
   options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
@@ -238,43 +281,46 @@ const poll = {
   answers: new Array(4).fill(0),
 
   registerNewAnswer: function () {
+    // Get answer
     const answer = Number(
       prompt(
-        `What is your favourite programming language?
-        \n0: JavaScript
-        \n1: Python
-        \n2: Rust
-        \n3: C++
-        \n(Write option number)`,
+        `${this.question}\n${this.options.join('\n')}\n(Write option number)`,
       ),
     );
-    if (Number.isInteger(answer) && answer >= 0 && answer <= 3) {
-      // poll.answers[answer] = poll.answers[answer] + 1;
+
+    console.log(answer);
+
+    //Register answer
+    typeof answer === 'number' &&
+      answer < this.answers.length &&
       this.answers[answer]++;
-      // console.log(poll.answers);
-    } else {
-      alert(
-        `${answer} is an invalid number. Please select an integer number between 0 and 3, corresponding to your favourite programming language.`,
-      );
-    }
+
     this.displayResults();
+    this.displayResults('string');
   },
-  displayResults: function (type = 'array') {
+
+  displayResults(type = 'array') {
     if (type === 'array') {
       console.log(this.answers);
     } else if (type === 'string') {
-      console.log(`Poll results are ${this.answers}`);
+      console.log(`Poll results are ${this.answers.join(', ')}`);
     }
   },
 };
+
+// poll.registerNewAnswer();
 
 document
   .querySelector('.poll')
   .addEventListener('click', poll.registerNewAnswer.bind(poll));
 
+poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
+poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
+
+// BONUS TEST DATA 1: [5, 2, 3]
+// BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
+
 /* 
-
-
 
 3. Create a method 'displayResults' which displays the poll results. The method takes a string as an input (called 'type'), which can be either 'string' or 'array'. If type is 'array', simply display the results array as it is, using console.log(). This should be the default option. If type is 'string', display a string like "Poll results are 13, 2, 4, 1". 
 4. Run the 'displayResults' method at the end of each 'registerNewAnswer' method call.
