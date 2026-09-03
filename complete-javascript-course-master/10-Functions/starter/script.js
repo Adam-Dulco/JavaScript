@@ -106,19 +106,84 @@
 
 // Functions returning new functions
 
-const greet = function (greeting) {
-  return function (name) {
-    console.log(`${greeting} ${name}`);
-  };
+// const greet = function (greeting) {
+//   return function (name) {
+//     console.log(`${greeting} ${name}`);
+//   };
+// };
+
+// const greeterHey = greet('Hey');
+// greeterHey('Adam');
+// greeterHey('Steven');
+
+// greet('Hello')('Jonas');
+
+// // Arrow function transformation challenge
+// const greetArr = greeting => name => console.log(`${greeting} ${name}`);
+
+// greetArr('Hi')('Adam');
+
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  // book: function(flightNum) {}
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`,
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+    console.log(this);
+  },
 };
 
-const greeterHey = greet('Hey');
-greeterHey('Adam');
-greeterHey('Steven');
+lufthansa.book(123, 'Adam');
+lufthansa.book(635, 'John Smith');
+console.log(lufthansa);
 
-greet('Hello')('Jonas');
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
 
-// Arrow function transformation challenge
-const greetArr = greeting => name => console.log(`${greeting} ${name}`);
+const book = lufthansa.book;
 
-greetArr('Hi')('Adam');
+// Does NOT work
+// book(23, 'Sarah Williams');
+
+// Call method
+book.call(eurowings, 23, 'Sarah Williams');
+console.log(eurowings);
+
+book.call(lufthansa, 321, 'Graham Simon');
+console.log(lufthansa);
+
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+book.call(swiss, 583, 'Henry Cooper');
+console.log(swiss);
+
+// Apply method
+const flightData = [583, 'George Cooper'];
+book.apply(swiss, flightData);
+console.log(swiss);
+
+book.call(swiss, ...flightData);
+
+// Bind Method
+// book.call(eurowings, 23, 'Sarah Williams');
+
+const bookEW = book.bind(eurowings);
+const bookLH = book.bind(lufthansa);
+const bookLX = book.bind(swiss);
+
+bookEW(23, 'Steven Williams');
+
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23('Adam');
+bookEW23('Martha Cooper');
