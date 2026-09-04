@@ -274,63 +274,73 @@
 //   .addEventListener('click', poll.registerNewAnswer.bind(poll));
 
 // CHALLENGE 1 - Jonas -------------------
-const poll = {
-  question: 'What is your favourite programming language?',
-  options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
-  // This generates [0, 0, 0, 0]. More in the next section 😃
-  answers: new Array(4).fill(0),
+// const poll = {
+//   question: 'What is your favourite programming language?',
+//   options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+//   // This generates [0, 0, 0, 0]. More in the next section 😃
+//   answers: new Array(4).fill(0),
 
-  registerNewAnswer: function () {
-    // Get answer
-    const answer = Number(
-      prompt(
-        `${this.question}\n${this.options.join('\n')}\n(Write option number)`,
-      ),
-    );
+//   registerNewAnswer: function () {
+//     // Get answer
+//     const answer = Number(
+//       prompt(
+//         `${this.question}\n${this.options.join('\n')}\n(Write option number)`,
+//       ),
+//     );
 
-    console.log(answer);
+//     console.log(answer);
 
-    //Register answer
-    typeof answer === 'number' &&
-      answer < this.answers.length &&
-      this.answers[answer]++;
+//     //Register answer
+//     typeof answer === 'number' &&
+//       answer < this.answers.length &&
+//       this.answers[answer]++;
 
-    this.displayResults();
-    this.displayResults('string');
-  },
+//     this.displayResults();
+//     this.displayResults('string');
+//   },
 
-  displayResults(type = 'array') {
-    if (type === 'array') {
-      console.log(this.answers);
-    } else if (type === 'string') {
-      console.log(`Poll results are ${this.answers.join(', ')}`);
-    }
-  },
+//   displayResults(type = 'array') {
+//     if (type === 'array') {
+//       console.log(this.answers);
+//     } else if (type === 'string') {
+//       console.log(`Poll results are ${this.answers.join(', ')}`);
+//     }
+//   },
+// };
+
+// // poll.registerNewAnswer();
+
+// document
+//   .querySelector('.poll')
+//   .addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+// poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
+// poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
+
+// // BONUS TEST DATA 1: [5, 2, 3]
+// // BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
+
+const runOnce = function () {
+  console.log('This will never run again');
 };
 
-// poll.registerNewAnswer();
+runOnce();
 
-document
-  .querySelector('.poll')
-  .addEventListener('click', poll.registerNewAnswer.bind(poll));
+// IIFE
+(function () {
+  console.log('This will never run again');
+  const isPrivate = 23;
+})();
 
-poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
-poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
+// console.log(isPrivate)
 
-// BONUS TEST DATA 1: [5, 2, 3]
-// BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
+// Arrow function Version of IIFE
+(() => console.log('This will ALSO never run again'))();
 
-/* 
+{
+  var notPrivate = 46;
+  const isPrivate = 23;
+}
 
-3. Create a method 'displayResults' which displays the poll results. The method takes a string as an input (called 'type'), which can be either 'string' or 'array'. If type is 'array', simply display the results array as it is, using console.log(). This should be the default option. If type is 'string', display a string like "Poll results are 13, 2, 4, 1". 
-4. Run the 'displayResults' method at the end of each 'registerNewAnswer' method call.
-
-HINT: Use many of the tools you learned about in this and the last section 😉
-
-BONUS: Use the 'displayResults' method to display the 2 arrays in the test data. Use both the 'array' and the 'string' option. Do NOT put the arrays in the poll object! So what should the this keyword look like in this situation?
-
-BONUS TEST DATA 1: [5, 2, 3]
-BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
-
-GOOD LUCK 😀
-*/
+console.log(notPrivate);
+console.log(isPrivate);
