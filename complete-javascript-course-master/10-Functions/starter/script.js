@@ -320,27 +320,42 @@
 // // BONUS TEST DATA 1: [5, 2, 3]
 // // BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
 
-const runOnce = function () {
-  console.log('This will never run again');
+// const runOnce = function () {
+//   console.log('This will never run again');
+// };
+
+// runOnce();
+
+// // IIFE
+// (function () {
+//   console.log('This will never run again');
+//   const isPrivate = 23;
+// })();
+
+// // console.log(isPrivate)
+
+// // Arrow function Version of IIFE
+// (() => console.log('This will ALSO never run again'))();
+
+// {
+//   var notPrivate = 46;
+//   const isPrivate = 23;
+// }
+
+// console.log(notPrivate);
+// console.log(isPrivate);
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
 };
 
-runOnce();
+const booker = secureBooking();
 
-// IIFE
-(function () {
-  console.log('This will never run again');
-  const isPrivate = 23;
-})();
-
-// console.log(isPrivate)
-
-// Arrow function Version of IIFE
-(() => console.log('This will ALSO never run again'))();
-
-{
-  var notPrivate = 46;
-  const isPrivate = 23;
-}
-
-console.log(notPrivate);
-console.log(isPrivate);
+booker();
+booker();
+booker();
