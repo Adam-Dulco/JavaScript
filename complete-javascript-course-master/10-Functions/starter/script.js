@@ -416,14 +416,14 @@
   });
 })();
 
-(() => {
-  const header = document.querySelector('h1');
-  header.style.color = 'red';
+// (() => {
+//   const header = document.querySelector('h1');
+//   header.style.color = 'red';
 
-  document.addEventListener('click', () => {
-    header.style.color = 'blue';
-  });
-})();
+//   document.addEventListener('click', () => {
+//     header.style.color = 'blue';
+//   });
+// })();
 
 /* 
 This is more of a thinking challenge than a coding challenge 🤓
