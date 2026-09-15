@@ -79,6 +79,23 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+const user = 'Steven Thomas Williams'; //stw
+
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+createUsernames(accounts);
+console.log(accounts);
+
+// console.log(username);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -250,32 +267,32 @@ GOOD LUCK 😀
 // // checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 // checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const eurToUsd = 1.1;
+// const eurToUsd = 1.1;
 
-// const movementsUSD = movements.map(function(mov){
-//   return mov * eurToUsd
-// })
+// // const movementsUSD = movements.map(function(mov){
+// //   return mov * eurToUsd
+// // })
 
-const movementsUSD = movements.map(mov => mov * eurToUsd);
+// const movementsUSD = movements.map(mov => mov * eurToUsd);
 
-console.log(movementsUSD);
+// console.log(movementsUSD);
 
-const movementsUSDfor = [];
-for (const mov of movements) {
-  movementsUSDfor.push(mov * eurToUsd);
-}
+// const movementsUSDfor = [];
+// for (const mov of movements) {
+//   movementsUSDfor.push(mov * eurToUsd);
+// }
 
-console.log(movementsUSDfor);
+// console.log(movementsUSDfor);
 
-// movements.forEach(function(mov){
-//   console.log(mov * eurToUsd)
-// })
+// // movements.forEach(function(mov){
+// //   console.log(mov * eurToUsd)
+// // })
 
-const movementsDescriptions = movements.map(
-  (mov, i) =>
-    `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'}  £${Math.abs(mov)}`,
-);
+// const movementsDescriptions = movements.map(
+//   (mov, i) =>
+//     `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'}  £${Math.abs(mov)}`,
+// );
 
-console.log(movementsDescriptions);
+// console.log(movementsDescriptions);
