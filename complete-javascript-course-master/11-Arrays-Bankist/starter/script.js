@@ -124,9 +124,22 @@ const createUsernames = function (accs) {
   });
 };
 
-// createUsernames(accounts);
+createUsernames(accounts);
 // console.log(accounts);
-// console.log(username);
+// console.log(account1.username);
+
+// Event handler
+let currentAccount;
+btnLogin.addEventListener('click', function (e) {
+  // Prevent form from submitting
+  e.preventDefault();
+
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value,
+  );
+
+  console.log(currentAccount);
+});
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -533,16 +546,23 @@ GOOD LUCK 😀
 
 // console.log(avg1, avg2);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const firstWithdrawal = movements.find(mov => mov < 0);
+// const firstWithdrawal = movements.find(mov => mov < 0);
 
-console.log(firstWithdrawal);
+// console.log(firstWithdrawal);
 
-console.log(accounts);
+// console.log(accounts);
 
-const account = accounts.find(acc => acc.owner === 'Jessica Davis');
-console.log(account);
+// const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+// console.log(account);
 
-const account9 = accounts.find(acc => acc.pin === 1111);
-console.log(account9);
+// const account9 = accounts.find(acc => acc.pin === 1111);
+// console.log(account9);
+
+// for (const account of accounts) {
+//   if (account.owner === 'Jessica Davis') {
+//     console.log(account);
+//     break;
+//   }
+// }
