@@ -139,6 +139,9 @@ btnLogin.addEventListener('click', function (e) {
   );
 
   console.log(currentAccount);
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    console.log('LOGIN');
+  }
 });
 
 /////////////////////////////////////////////////
@@ -566,3 +569,11 @@ GOOD LUCK 😀
 //     break;
 //   }
 // }
+
+// const arrayHere = [1, 2, 3, 4, 5, 6, 7];
+
+// const filterMe = arrayHere.filter(param => param > 3);
+// const findMe = arrayHere.find(param => param > 3);
+
+// console.log(findMe);
+// console.log(filterMe);
