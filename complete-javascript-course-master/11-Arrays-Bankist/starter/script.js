@@ -103,7 +103,7 @@ const calcDisplaySummary = function (acc) {
     .filter(mov => mov > 0)
     .map(deposit => (deposit * acc.interestRate) / 100)
     .filter((int, i, arr) => {
-      console.log(arr);
+      // console.log(arr);
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
@@ -161,7 +161,7 @@ btnLogin.addEventListener('click', function (e) {
     // Update UI
     updateUI(currentAccount);
 
-    console.log('LOGIN');
+    // console.log('LOGIN');
   }
 });
 
@@ -187,6 +187,11 @@ btnTransfer.addEventListener('click', function (e) {
     // Update UI
     updateUI(currentAccount);
   }
+});
+
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+  console.log('Delete');
 });
 
 /////////////////////////////////////////////////
