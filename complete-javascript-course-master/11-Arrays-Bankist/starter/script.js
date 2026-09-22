@@ -648,11 +648,30 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 console.log(movements);
 
-const lastWithdrawal = movements.findLast(mov => mov < 0);
-console.log(lastWithdrawal);
+// const lastWithdrawal = movements.findLast(mov => mov < 0);
+// console.log(lastWithdrawal);
 
-const lastWithdrawalIndex = movements.findLastIndex(mov => mov < 0);
+// Finds the last movement which is over or equal to 2000
+// const lastLargeWithdrawal = movements.findLast(mov => mov >= 2000);
+// console.log(lastLargeWithdrawal);
+
+// // Finds the last INDEX of movement which is over or equal to 2000
+// const lastLargeWithdrawalIndex = movements.findLastIndex(mov => mov >= 2000);
+
+// const movementsAgo = movements.length - lastLargeWithdrawalIndex;
+
+// console.log(movementsAgo);
+
+// console.log(
+//   `Your latest large movement was: ${lastLargeWithdrawal}, which was ${movementsAgo} movements ago`,
+// );
+
+const latestLargeMovementIndex = movements.findLastIndex(mov =>
+  Math.abs(mov >= 2000),
+);
+
+console.log(latestLargeMovementIndex);
 
 console.log(
-  `Your latest large movement was: ${lastWithdrawal}, which was ${lastWithdrawalIndex} movements ago`,
+  `Your latest large movement was ${movements.length - latestLargeMovementIndex} movements ago`,
 );
