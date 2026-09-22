@@ -643,3 +643,16 @@ GOOD LUCK 😀
 
 // console.log(findMe);
 // console.log(filterMe);
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+console.log(movements);
+
+const lastWithdrawal = movements.findLast(mov => mov < 0);
+console.log(lastWithdrawal);
+
+const lastWithdrawalIndex = movements.findLastIndex(mov => mov < 0);
+
+console.log(
+  `Your latest large movement was: ${lastWithdrawal}, which was ${lastWithdrawalIndex} movements ago`,
+);
