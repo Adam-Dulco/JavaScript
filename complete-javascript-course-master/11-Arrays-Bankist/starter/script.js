@@ -693,26 +693,61 @@ GOOD LUCK 😀
 //   `Your latest large movement was ${movements.length - latestLargeMovementIndex} movements ago`,
 // );
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-// console.log(movements);
+// // console.log(movements);
 
-// EQUALITY
-// console.log(movements.includes(-130));
+// // EQUALITY
+// // console.log(movements.includes(-130));
 
-// SOME: CONDITION
-// console.log(movements.some(mov => mov === -130));
+// // SOME: CONDITION
+// // console.log(movements.some(mov => mov === -130));
 
-// const anyDeposits = movements.some(mov => mov > 0);
-// console.log(anyDeposits);
+// // const anyDeposits = movements.some(mov => mov > 0);
+// // console.log(anyDeposits);
 
-// EVERY
+// // EVERY
 
-console.log(movements.every(mov => mov > 0));
-console.log(account4.movements.every(mov => mov > 0));
+// console.log(movements.every(mov => mov > 0));
+// console.log(account4.movements.every(mov => mov > 0));
 
-// Separate callback
-const deposit = mov => mov > 0;
-console.log(movements.some(deposit));
-console.log(movements.every(deposit));
-console.log(movements.filter(deposit));
+// // Separate callback
+// const deposit = mov => mov > 0;
+// console.log(movements.some(deposit));
+// console.log(movements.every(deposit));
+// console.log(movements.filter(deposit));
+
+// Flat method
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat());
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arrDeep.flat(2));
+
+const arrDeepest = [[[[1], 2], 3], [4, [5, [6]]], 7, 8];
+console.log(arrDeepest.flat(Infinity));
+
+// Working with account object arrays
+// const accountMovements = accounts.map(acc => acc.movements);
+// console.log(accountMovements);
+
+// const allMovements = accountMovements.flat();
+// console.log(allMovements);
+
+// const overallBalance = allMovements.reduce((acc, mov) => acc + mov);
+// console.log(overallBalance);
+
+// flat method
+const overallBalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov);
+
+console.log(overallBalance);
+
+// flatMap method
+const overallBalance2 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => acc + mov);
+
+console.log(overallBalance2);
