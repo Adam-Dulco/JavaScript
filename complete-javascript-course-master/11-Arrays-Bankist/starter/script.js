@@ -165,13 +165,14 @@ btnLogin.addEventListener('click', function (e) {
   }
 });
 
-// Transfer Button
+// Transfer Money Button
 btnTransfer.addEventListener('click', function (e) {
   e.preventDefault();
   const amount = Number(inputTransferAmount.value);
   const receiverAcc = accounts.find(
     acc => acc.username === inputTransferTo.value,
   );
+  // Clear input fields
   inputTransferAmount.value = inputTransferTo.value = '';
 
   if (
@@ -189,6 +190,25 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+// Request Loan Button
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+  /*If at least one of the elements in the movement array is greater than 0 and is at least 10% of the requested loan */
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+    // Add movement
+    currentAccount.movements.push(amount);
+
+    // Update UI
+    updateUI(currentAccount);
+  }
+
+  // Clear input field
+  inputLoanAmount.value = '';
+});
+
+// Close Account Button
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
 
@@ -207,6 +227,7 @@ btnClose.addEventListener('click', function (e) {
     containerApp.style.opacity = 0;
   }
 
+  // Clear input fields
   inputCloseUsername.value = inputClosePin.value = '';
 });
 
@@ -672,15 +693,15 @@ GOOD LUCK 😀
 //   `Your latest large movement was ${movements.length - latestLargeMovementIndex} movements ago`,
 // );
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-console.log(movements);
+// console.log(movements);
 
-// EQUALITY
-console.log(movements.includes(-130));
+// // EQUALITY
+// console.log(movements.includes(-130));
 
-// CONDITION
-console.log(movements.some(mov => mov === -130));
+// // CONDITION
+// console.log(movements.some(mov => mov === -130));
 
-const anyDeposits = movements.some(mov => mov > 0);
-console.log(anyDeposits);
+// const anyDeposits = movements.some(mov => mov > 0);
+// console.log(anyDeposits);
