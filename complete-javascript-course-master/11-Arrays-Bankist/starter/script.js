@@ -644,10 +644,6 @@ GOOD LUCK 😀
 // console.log(findMe);
 // console.log(filterMe);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
-console.log(movements);
-
 // const lastWithdrawal = movements.findLast(mov => mov < 0);
 // console.log(lastWithdrawal);
 
@@ -666,12 +662,25 @@ console.log(movements);
 //   `Your latest large movement was: ${lastLargeWithdrawal}, which was ${movementsAgo} movements ago`,
 // );
 
-const latestLargeMovementIndex = movements.findLastIndex(mov =>
-  Math.abs(mov >= 2000),
-);
+// const latestLargeMovementIndex = movements.findLastIndex(mov =>
+//   Math.abs(mov >= 2000),
+// );
 
-console.log(latestLargeMovementIndex);
+// console.log(latestLargeMovementIndex);
 
-console.log(
-  `Your latest large movement was ${movements.length - latestLargeMovementIndex} movements ago`,
-);
+// console.log(
+//   `Your latest large movement was ${movements.length - latestLargeMovementIndex} movements ago`,
+// );
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+console.log(movements);
+
+// EQUALITY
+console.log(movements.includes(-130));
+
+// CONDITION
+console.log(movements.some(mov => mov === -130));
+
+const anyDeposits = movements.some(mov => mov > 0);
+console.log(anyDeposits);
