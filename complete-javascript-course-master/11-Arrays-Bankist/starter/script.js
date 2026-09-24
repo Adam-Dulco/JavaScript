@@ -763,7 +763,7 @@ This time, Julia and Kate are studying the activity levels of different dog bree
 
 YOUR TASKS:
 
-2. Find the name of the only breed that likes both "running" and "fetch" ("dogBothActivities" variable)
+
 3. Create an array "allActivities" of all the activities of all the dog breeds
 4. Create an array "uniqueActivities" that contains only the unique activities (no activity repetitions). HINT: Use a technique with a special data structure that we studied a few sections ago.
 5. Many dog breeds like to swim. What other activities do these dogs like? Store all the OTHER activities these breeds like to do, in a unique array called "swimmingAdjacent".
@@ -816,3 +816,12 @@ const breeds = [
 // 1. Store the the average weight of a "Husky" in a variable "huskyWeight"
 const huskyWeight = breeds.find(breed => breed.breed === 'Husky').averageWeight;
 console.log(huskyWeight);
+
+// 2. Find the name of the only breed that likes both "running" and "fetch" ("dogBothActivities" variable)
+const dogBothActivities = breeds.find(
+  dog => dog.activities.includes('running') && dog.activities.includes('fetch'),
+).breed;
+
+console.log(dogBothActivities);
+
+// 3. Create an array "allActivities" of all the activities of all the dog breeds
