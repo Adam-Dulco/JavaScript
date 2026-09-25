@@ -821,9 +821,23 @@ const uniqueActivities = [...new Set(allActivities)];
 console.log(uniqueActivities);
 
 // 5. Many dog breeds like to swim. What other activities do these dogs like? Store all the OTHER activities these breeds like to do, in a unique array called "swimmingAdjacent".
+const swimmingAdjacent = breeds.flatMap(dog =>
+  dog.activities.filter(activity => activity !== 'swimming'),
+);
+
+console.log(swimmingAdjacent);
 
 // 6. Do all the breeds have an average weight of 10kg or more? Log to the console whether "true" or "false".
+console.log(breeds.every(dog => dog.averageWeight >= 10));
 
 //7. Are there any breeds that are "active"? "Active" means that the dog has 3 or more activities. Log to the console whether "true" or "false".
+console.log(breeds.some(dog => dog.activities.length >= 3));
 
 // BONUS: What's the average weight of the heaviest breed that likes to fetch? HINT: Use the "Math.max" method along with the ... operator.
+const maxWeightOfFetchBreed = Math.max(
+  ...breeds
+    .filter(dog => dog.activities.includes('fetch'))
+    .map(dog => dog.averageWeight),
+);
+
+console.log(maxWeightOfFetchBreed);
