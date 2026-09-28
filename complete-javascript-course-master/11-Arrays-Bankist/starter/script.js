@@ -939,29 +939,64 @@ TEST DATA:
 // movements.sort((a, b) => b - a);
 // console.log(movements);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-console.log(movements);
+// console.log(movements);
 
-const groupedMovements = Object.groupBy(movements, movement =>
-  movement > 0 ? 'deposits' : 'withdrawals',
-);
+// const groupedMovements = Object.groupBy(movements, movement =>
+//   movement > 0 ? 'deposits' : 'withdrawals',
+// );
 
-console.log(groupedMovements);
+// console.log(groupedMovements);
 
-const groupedByActivity = Object.groupBy(accounts, account => {
-  const movementCount = account.pin.length;
+// const groupedByActivity = Object.groupBy(accounts, account => {
+//   const movementCount = account.pin.length;
 
-  if (movementCount >= 8) return 'very active';
-  if (movementCount >= 4) return 'active';
-  if (movementCount >= 1) return 'moderate';
-  return 'inactive';
-});
+//   if (movementCount >= 8) return 'very active';
+//   if (movementCount >= 4) return 'active';
+//   if (movementCount >= 1) return 'moderate';
+//   return 'inactive';
+// });
 
-console.log(groupedByActivity);
+// console.log(groupedByActivity);
 
 // const groupedAccounts = Object.groupBy(accounts, account => account.type);
 
-const groupedAccounts = Object.groupBy(accounts, ({ type }) => type);
+// const groupedAccounts = Object.groupBy(accounts, ({ type }) => type);
 
-console.log(groupedAccounts);
+// console.log(groupedAccounts);
+
+const arr = [1, 2, 3, 4, 5, 6, 7];
+console.log(arr);
+
+console.log(new Array(1, 2, 3, 4, 5, 6, 7));
+
+const x = new Array(7);
+
+x.fill(1, 3, 5);
+x.fill(1);
+console.log(x);
+
+arr.fill(23, 4, 6);
+console.log(arr);
+
+// Array.from
+const y = Array.from({ length: 7 }, () => 1);
+
+console.log(y);
+
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(z);
+
+const diceRoll = Math.random(Array.from({ length: 100 }, (_, i) => i + 1)) * 10;
+console.log(diceRoll);
+
+labelBalance.addEventListener('click', function () {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => Number(el.textContent.replace('€', '')),
+  );
+  console.log(movementsUI);
+
+  const movementsUI2 = [...document.querySelectorAll('.movements__value')];
+});
