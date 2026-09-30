@@ -334,37 +334,56 @@ btnSort.addEventListener('click', function (e) {
 
 // Remainder operator
 
-console.log(5 % 2);
-console.log(5 / 2); //5 = 2 * 2 + 1
-console.log(11 % 3);
-console.log(8 % 3);
-console.log(8 / 3);
+// console.log(5 % 2);
+// console.log(5 / 2); //5 = 2 * 2 + 1
+// console.log(11 % 3);
+// console.log(8 % 3);
+// console.log(8 / 3);
 
-const oddOrEven = function (num) {
-  if (num % 2 === 0) {
-    console.log('even');
-  } else console.log('odd');
-};
+// const oddOrEven = function (num) {
+//   if (num % 2 === 0) {
+//     console.log('even');
+//   } else console.log('odd');
+// };
 
-const isEven = n => (n % 2 === 0 ? console.log('even') : console.log('odd'));
+// const isEven = n => (n % 2 === 0 ? console.log('even') : console.log('odd'));
 
-isEven(1);
-isEven(2);
-isEven(3);
-isEven(4);
-isEven(5);
-isEven(6);
-isEven(7);
-isEven(813321332);
+// isEven(1);
+// isEven(2);
+// isEven(3);
+// isEven(4);
+// isEven(5);
+// isEven(6);
+// isEven(7);
+// isEven(813321332);
 
-labelBalance.addEventListener('click', function () {
-  console.log(
-    [...document.querySelectorAll('.movements__row')].forEach(
-      function (row, i) {
-        if (i % 2 === 0) row.style.backgroundColor = 'orangered';
-        // 0, 3, 6, 9
-        if (i % 3 === 0) row.style.backgroundColor = 'paleturquoise';
-      },
-    ),
-  );
-});
+// labelBalance.addEventListener('click', function () {
+//   console.log(
+//     [...document.querySelectorAll('.movements__row')].forEach(
+//       function (row, i) {
+//         if (i % 2 === 0) row.style.backgroundColor = 'orangered';
+//         // 0, 3, 6, 9
+//         if (i % 3 === 0) row.style.backgroundColor = 'paleturquoise';
+//       },
+//     ),
+//   );
+// });
+
+// Numeric separators
+
+const diameter = 287_460_000_000;
+console.log(diameter)
+
+const price = 349_99;
+console.log(price)
+
+const transferFee1 = 15_00;
+const transferFee2 = 1_500;
+console.log(transferFee1)
+console.log(transferFee2)
+
+const PI = 3.1415;
+console.log(PI)
+
+console.log(Number('230000'))
+console.log(parseInt('2_30_000'))
