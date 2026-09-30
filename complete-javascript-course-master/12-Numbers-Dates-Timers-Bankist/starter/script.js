@@ -305,29 +305,66 @@ btnSort.addEventListener('click', function (e) {
 // console.log(randomInt(0, 3))
 
 // Rounding integers
-console.log('trunc');
-console.log(Math.trunc(23.3));
-console.log(Math.trunc(23.9));
+// console.log('trunc');
+// console.log(Math.trunc(23.3));
+// console.log(Math.trunc(23.9));
 
-console.log('round');
-console.log(Math.round(23.3));
-console.log(Math.round(23.9));
+// console.log('round');
+// console.log(Math.round(23.3));
+// console.log(Math.round(23.9));
 
-console.log('ceil');
-console.log(Math.ceil(23.3));
-console.log(Math.ceil(23.9));
+// console.log('ceil');
+// console.log(Math.ceil(23.3));
+// console.log(Math.ceil(23.9));
 
-console.log('floor');
-console.log(Math.floor(23.3));
-console.log(Math.floor(23.9));
+// console.log('floor');
+// console.log(Math.floor(23.3));
+// console.log(Math.floor(23.9));
 
-console.log('comparing floor and trunc');
-console.log(Math.floor(-23.3));
-console.log(Math.trunc(-23.3));
+// console.log('comparing floor and trunc');
+// console.log(Math.floor(-23.3));
+// console.log(Math.trunc(-23.3));
 
-// Rounding decimals
+// // Rounding decimals
 
-console.log((2.724241443).toFixed(5));
-console.log((2.7).toFixed(0));
-console.log((2.7).toFixed(3));
-console.log(+(2.345).toFixed(3));
+// console.log((2.724241443).toFixed(5));
+// console.log((2.7).toFixed(0));
+// console.log((2.7).toFixed(3));
+// console.log(+(2.345).toFixed(3));
+
+// Remainder operator
+
+console.log(5 % 2);
+console.log(5 / 2); //5 = 2 * 2 + 1
+console.log(11 % 3);
+console.log(8 % 3);
+console.log(8 / 3);
+
+const oddOrEven = function (num) {
+  if (num % 2 === 0) {
+    console.log('even');
+  } else console.log('odd');
+};
+
+const isEven = n => (n % 2 === 0 ? console.log('even') : console.log('odd'));
+
+isEven(1);
+isEven(2);
+isEven(3);
+isEven(4);
+isEven(5);
+isEven(6);
+isEven(7);
+isEven(813321332);
+
+labelBalance.addEventListener('click', function () {
+  console.log(
+    [...document.querySelectorAll('.movements__row')].forEach(
+      function (row, i) {
+        if (i % 2 === 0) row.style.backgroundColor = 'orangered';
+        // 0, 3, 6, 9
+        if (i % 3 === 0) row.style.backgroundColor = 'paleturquoise';
+      },
+    ),
+  );
+});
