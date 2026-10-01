@@ -390,30 +390,70 @@ btnSort.addEventListener('click', function (e) {
 
 // Big Int
 
-console.log( 2 ** 53 - 1)
-console.log(Number.MAX_SAFE_INTEGER)
-console.log(34534584395349543543958439568439843963)
-console.log(34534584395349543543958439568439843963n)
-console.log(BigInt(34534584395349543543958439568439843963))
+// console.log( 2 ** 53 - 1)
+// console.log(Number.MAX_SAFE_INTEGER)
+// console.log(34534584395349543543958439568439843963)
+// console.log(34534584395349543543958439568439843963n)
+// console.log(BigInt(34534584395349543543958439568439843963))
 
-// Operations
+// // Operations
 
-console.log(10000n + 10000n)
-console.log(10000n - 10000n)
-console.log(10035989358347243294223429802300n * 830284092842048204810000n)
-console.log(10000n + 10000n)
+// console.log(10000n + 10000n)
+// console.log(10000n - 10000n)
+// console.log(10035989358347243294223429802300n * 830284092842048204810000n)
+// console.log(10000n + 10000n)
 
-const huge = 2428394598593285955252353255n
-const num = 23
+// const huge = 2428394598593285955252353255n
+// const num = 23
 
-console.log(huge * BigInt(num))
+// console.log(huge * BigInt(num))
 
-console.log(20n > 15)
-console.log(20n === 20)
+// console.log(20n > 15)
+// console.log(20n === 20)
 
-console.log(huge + ' is REALLY big!!!')
+// console.log(huge + ' is REALLY big!!!')
 
-// Divisions
+// // Divisions
 
-console.log(11n / 3n)
-console.log(11 / 3)
+// console.log(11n / 3n)
+// console.log(11 / 3)
+
+// Create a date
+
+// const now = new Date()
+// console.log(now)
+
+// console.log(new Date(account1.movementsDates[0]))
+// console.log(new Date(2037, 10, 19, 15, 23, 5))
+// console.log(new Date(0));
+// console.log(new Date(3 * 24 * 60 * 60 * 1000));
+
+// Working with dates
+const future = new Date(2037, 10, 19, 15, 23, 5);
+console.log(future);
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDate());
+console.log(future.getDay());
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString());
+console.log(future.toUTCString());
+console.log(future.toTimeString());
+console.log(future.getTime());
+
+console.log(new Date(2142256985000));
+
+console.log();
+
+const newTime = new Date();
+console.log(newTime);
+console.log(newTime.getTime());
+console.log(new Date(1790871658232));
+
+console.log(Date.now());
+console.log(Date.now());
+
+future.setFullYear(2040);
+console.log(future);
