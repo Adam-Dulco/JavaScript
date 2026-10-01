@@ -371,19 +371,49 @@ btnSort.addEventListener('click', function (e) {
 
 // Numeric separators
 
-const diameter = 287_460_000_000;
-console.log(diameter)
+// const diameter = 287_460_000_000;
+// console.log(diameter);
 
-const price = 349_99;
-console.log(price)
+// const price = 349_99;
+// console.log(price);
 
-const transferFee1 = 15_00;
-const transferFee2 = 1_500;
-console.log(transferFee1)
-console.log(transferFee2)
+// const transferFee1 = 15_00;
+// const transferFee2 = 1_500;
+// console.log(transferFee1);
+// console.log(transferFee2);
 
-const PI = 3.1415;
-console.log(PI)
+// const PI = 3.1415;
+// console.log(PI);
 
-console.log(Number('230000'))
-console.log(parseInt('2_30_000'))
+// console.log(Number('230000'));
+// console.log(parseInt('2_30_000'));
+
+// Big Int
+
+console.log( 2 ** 53 - 1)
+console.log(Number.MAX_SAFE_INTEGER)
+console.log(34534584395349543543958439568439843963)
+console.log(34534584395349543543958439568439843963n)
+console.log(BigInt(34534584395349543543958439568439843963))
+
+// Operations
+
+console.log(10000n + 10000n)
+console.log(10000n - 10000n)
+console.log(10035989358347243294223429802300n * 830284092842048204810000n)
+console.log(10000n + 10000n)
+
+const huge = 2428394598593285955252353255n
+const num = 23
+
+console.log(huge * BigInt(num))
+
+console.log(20n > 15)
+console.log(20n === 20)
+
+console.log(huge + ' is REALLY big!!!')
+
+// Divisions
+
+console.log(11n / 3n)
+console.log(11 / 3)
