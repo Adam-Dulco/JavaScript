@@ -171,16 +171,6 @@ currentAccount = account1;
 updateUI(currentAccount);
 containerApp.style.opacity = 100;
 
-const now = new Date();
-const day = `${now.getDate()}`.padStart(2, 0);
-const month = `${now.getMonth() + 1}`.padStart(2, 0);
-const year = now.getFullYear();
-const hour = now.getHours();
-const min = now.getMinutes();
-labelDate.textContent = `${day}/${month}/${year}, ${hour}:${min}`;
-
-console.log('-------------------');
-console.log(day, month, year, hour);
 //day/month/year
 
 btnLogin.addEventListener('click', function (e) {
@@ -198,6 +188,15 @@ btnLogin.addEventListener('click', function (e) {
       currentAccount.owner.split(' ')[0]
     }`;
     containerApp.style.opacity = 100;
+
+    // Create current date
+    const now = new Date();
+    const day = `${now.getDate()}`.padStart(2, 0);
+    const month = `${now.getMonth() + 1}`.padStart(2, 0);
+    const year = now.getFullYear();
+    const hour = `${now.getHours()}`.padStart(2, 0);
+    const min = `${now.getMinutes()}`.padStart(2, 0);
+    labelDate.textContent = `${day}/${month}/${year}, ${hour}:${min}`;
 
     // Clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
@@ -226,6 +225,10 @@ btnTransfer.addEventListener('click', function (e) {
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
 
+    // Add transfer date
+    currentAccount.movementsDates.push(new Date().toISOString());
+    receiverAccAccount.movementsDates.push(new Date().toISOString());
+
     // Update UI
     updateUI(currentAccount);
   }
@@ -239,6 +242,9 @@ btnLoan.addEventListener('click', function (e) {
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     // Add movement
     currentAccount.movements.push(amount);
+
+    // Add loan date
+    currentAccount.movementsDates.push(new Date().toISOString());
 
     // Update UI
     updateUI(currentAccount);
@@ -457,34 +463,34 @@ btnSort.addEventListener('click', function (e) {
 // console.log(new Date(3 * 24 * 60 * 60 * 1000));
 
 // Working with dates
-const future = new Date(2037, 10, 19, 15, 23, 5);
-console.log(future);
-console.log(future.getFullYear());
-console.log(future.getMonth());
-console.log(future.getDate());
-console.log(future.getDay());
-console.log(future.getHours());
-console.log(future.getMinutes());
-console.log(future.getSeconds());
-console.log(future.toISOString());
-console.log(future.toUTCString());
-console.log(future.toTimeString());
-console.log(future.getTime());
+// const future = new Date(2037, 10, 19, 15, 23, 5);
+// console.log(future);
+// console.log(future.getFullYear());
+// console.log(future.getMonth());
+// console.log(future.getDate());
+// console.log(future.getDay());
+// console.log(future.getHours());
+// console.log(future.getMinutes());
+// console.log(future.getSeconds());
+// console.log(future.toISOString());
+// console.log(future.toUTCString());
+// console.log(future.toTimeString());
+// console.log(future.getTime());
 
-console.log(new Date(2142256985000));
+// console.log(new Date(2142256985000));
 
-console.log();
+// console.log();
 
-const newTime = new Date();
-console.log(newTime);
-console.log(newTime.getTime());
-console.log(new Date(1790871658232));
+// const newTime = new Date();
+// console.log(newTime);
+// console.log(newTime.getTime());
+// console.log(new Date(1790871658232));
 
-console.log(Date.now());
-console.log(Date.now());
+// console.log(Date.now());
+// console.log(Date.now());
 
-future.setFullYear(2040);
-console.log(future);
+// future.setFullYear(2040);
+// console.log(future);
 
 // const updateDate = labelDate.innerHTML = new Date()
 
