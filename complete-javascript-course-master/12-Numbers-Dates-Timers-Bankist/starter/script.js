@@ -89,7 +89,7 @@ const formatMovementDate = function (date, locale) {
     Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
 
   const daysPassed = calcDaysPassed(new Date(), date);
-  console.log(daysPassed);
+  // console.log(daysPassed);
 
   if (daysPassed === 0) return 'Today';
   if (daysPassed === 1) return 'Yesterday';
@@ -210,7 +210,7 @@ btnLogin.addEventListener('click', function (e) {
   currentAccount = accounts.find(
     acc => acc.username === inputLoginUsername.value,
   );
-  console.log(currentAccount);
+  // console.log(currentAccount);
 
   if (currentAccount?.pin === +inputLoginPin.value) {
     // Display UI and message
@@ -289,14 +289,18 @@ btnLoan.addEventListener('click', function (e) {
   const amount = Math.floor(inputLoanAmount.value);
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
-    // Add movement
-    currentAccount.movements.push(amount);
+    setTimeout(function () {
+      {
+        // Add movement
+        currentAccount.movements.push(amount);
 
-    // Add loan date
-    currentAccount.movementsDates.push(new Date().toISOString());
+        // Add loan date
+        currentAccount.movementsDates.push(new Date().toISOString());
 
-    // Update UI
-    updateUI(currentAccount);
+        // Update UI
+        updateUI(currentAccount);
+      }
+    }, 2500);
   }
   inputLoanAmount.value = '';
 });
@@ -311,7 +315,7 @@ btnClose.addEventListener('click', function (e) {
     const index = accounts.findIndex(
       acc => acc.username === currentAccount.username,
     );
-    console.log(index);
+    // console.log(index);
     // .indexOf(23)
 
     // Delete account
@@ -587,3 +591,23 @@ btnSort.addEventListener('click', function (e) {
 // console.log('Syria: ', new Intl.NumberFormat('ar-SY', options).format(num));
 
 // console.log('Browser: ', new Intl.NumberFormat(navigator.language).format(num));
+
+// setTimeout
+// const ingredients = ['olives', 'spinach']
+
+// const pizzaTimer = setTimeout((ing1, ing2) => console.log(`Here is your pizza pizza with ${ing1} and ${ing2}🍕`), 3000, ...ingredients)
+
+// console.log('Waiting...')
+
+// if(ingredients.includes('spinach')) clearTimeout(pizzaTimer)
+
+// setInterval - Works like a digital clock
+
+setInterval(function () {
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+
+  console.log(`${hours}:${minutes}:${seconds}`);
+}, 1000);
