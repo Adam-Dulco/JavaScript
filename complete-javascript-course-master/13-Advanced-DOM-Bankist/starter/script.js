@@ -94,7 +94,7 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 ///////////////////////////////////////////
 ///////////////////////////////////////////
 
-// // Selecting elements
+// Selecting elements
 // console.log(document.documentElement);
 // console.log(document.head);
 // console.log(document.body);
@@ -233,3 +233,19 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 //   },
 //   true,
 // );
+
+const h1 = document.querySelector('h1');
+
+// Going downwards: child
+console.log(h1.querySelectorAll('.highlight'));
+console.log(h1.childNodes);
+console.log(h1.children);
+h1.firstElementChild.style.color = 'white'
+h1.lastElementChild.style.color = 'orangered'
+
+// Going upwards: parents
+console.log(h1.parentNode)
+console.log(h1.parentElement)
+
+h1.closest('.header').style.background = 'var(--gradient-secondary)'
+
