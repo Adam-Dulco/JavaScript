@@ -1,30 +1,37 @@
 'use strict';
 /////////////////////////////////////////////
 // Constructor functions
-// const Person = function (firstName, birthYear) {
-//   // Instance properties
-//   this.firstName = firstName;
-//   this.birthYear = birthYear;
+const Person = function (firstName, birthYear) {
+  // Instance properties
+  this.firstName = firstName;
+  this.birthYear = birthYear;
 
-//   // Never do this
-//   //   this.calcAge = function () {
-//   //     console.log(2037 - this.birthYear);
-//   //   };
-// };
+  // Never do this
+  //   this.calcAge = function () {
+  //     console.log(2037 - this.birthYear);
+  //   };
+};
 
-// const jonas = new Person('Jonas', 1989);
-// console.log(jonas);
+const jonas = new Person('Jonas', 1989);
+console.log(jonas);
 
-// // 1. New object {} is created
-// // 2. function is called, this = new object {}
-// // 3. object {} is linked to prototype
-// // 4. function automatically returns the object {}
+// 1. New object {} is created
+// 2. function is called, this = new object {}
+// 3. object {} is linked to prototype
+// 4. function automatically returns the object {}
 
-// const matilda = new Person('Matilda', 2001);
-// const jack = new Person('Jack', 2001);
-// console.log(matilda, jack);
+const matilda = new Person('Matilda', 2001);
+const jack = new Person('Jack', 2001);
+console.log(matilda, jack);
 
-// console.log(jonas instanceof Person);
+console.log(jonas instanceof Person);
+
+Person.hey = function () {
+  console.log('Hey there!!');
+  console.log(this);
+};
+
+Person.hey();
 
 // // Prototypes
 // console.log(Person.prototype);
@@ -113,6 +120,7 @@
 /////////////////////////////////////////////
 
 // ES6 Classes
+console.log('---------- ES6 Classes  ---------');
 
 // class expression
 // const Personcl = class{}
@@ -123,6 +131,7 @@ class PersonCl {
     this.fullName = fullName;
     this.birthYear = birthYear;
   }
+  // Instance methods
   // Methods will be added to .prototype property
   calcAge() {
     console.log(2037 - this.birthYear);
@@ -145,6 +154,12 @@ class PersonCl {
 
   get fullName() {
     return this._fullName;
+  }
+
+  // Static method
+  static hey() {
+    console.log('Hey there!!');
+    console.log(this);
   }
 }
 
@@ -169,6 +184,8 @@ jessica.greet();
 
 console.log('---------- Getters & Setters ---------');
 
+PersonCl.hey();
+
 const walter = new PersonCl('Walter White', 1965);
 
 const account = {
@@ -188,3 +205,17 @@ console.log(account.latest);
 
 account.latest = 50;
 console.log(account.movements);
+
+console.log('---------- Object.create Method of OOP ---------');
+
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+};
+
+const steven = Object.create(PersonProto);
+console.log(steven);
+steven.name = 'Steven';
+steven.birthYear = 2002;
+steven.calcAge();
